@@ -25,10 +25,10 @@ baseurl: /
 #
 
 # 你的博客logo图片URL，建议尺寸不超过300px × 300px
-avatar: https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/logo.png
+avatar: https://raw.githubusercontent.com/lswlc33/blog/master/images/logo.jpg
 
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/favicon.png
+favicon: https://raw.githubusercontent.com/lswlc33/blog/master/images/favicon.png
 
 
 # 菜单中的按钮
@@ -39,7 +39,7 @@ navigation:
     url: /about
 
 # 每页的文章数
-paginate: 8
+paginate: 50
 
 # 文章简介的区分标记
 excerpt_separator: <!-- more -->
@@ -49,10 +49,10 @@ footer-links:
   weibo:  #请输入你的微博个性域名 https://www.weibo.com/<thispart>
   behance: # https://www.behance.net/<>
   dribbble: # https://dribbble.com/<>
-  email: #youremailaddress@mail.com
+  email: lswlc33@qq.com
   facebook: #https://www.facebook.com/<>
   flickr: #https://www.flickr.com/<>
-  github:  #https://github.com/<>
+  github:  https://github.com/lswlc33
   instagram: #https://instagram.com/<>
   linkedin: #https://www.linkedin.com/in/<>
   pinterest: #https://www.pinterest.com/<>
@@ -63,14 +63,14 @@ footer-links:
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # 站点页脚的文字
-footer-text: Copyright (c) 2050 来自二次元世界
+footer-text: 唤取雪中明月，征服浩瀚世界！   Copyright (c) 2050   
 
 #
 # 评论，注意，请不要同时添加多种不同的评论区
 #
 
 # 输入Disqus shortname，即可添加评论区，请查阅文档，设置自己的disqus站点，不要继续使用我的站点loffer
-disqus: loffer #shortname
+disqus:  #shortname
 
 # 输入Gitalk相关设定，即可添加评论区，具体请看教程
 gitalk:
