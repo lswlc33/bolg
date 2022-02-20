@@ -1,7 +1,7 @@
 ---
 layout: post
 title: \[小米4馆改]XUEMIUI FOR CANCRO 
-date: 
+date: 2022-2-19
 Author:  
 tags: [小米4, ROM, XUEMIUI]
 ---
