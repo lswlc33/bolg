@@ -25,10 +25,10 @@ baseurl: /
 #
 
 # 你的博客logo图片URL，建议尺寸不超过300px × 300px
-avatar: https://i0.hdslb.com/bfs/album/23c76abe2341525cf3d564190a40ce3e39eb5bfa.png
+avatar: https://s3.bmp.ovh/imgs/2022/02/4ab2381d4dff3370.png
 
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://i0.hdslb.com/bfs/album/23c76abe2341525cf3d564190a40ce3e39eb5bfa.png
+favicon: https://s3.bmp.ovh/imgs/2022/02/4ab2381d4dff3370.png
 
 
 # 菜单中的按钮
