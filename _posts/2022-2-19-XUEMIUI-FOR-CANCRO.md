@@ -1,9 +1,9 @@
 ---
 layout: post
-title: \[小米4馆改\]XUEMIUI FOR CANCRO 
+title: \[小米4馆改]XUEMIUI FOR CANCRO 
 date: 
 Author:  
-tags: [小米4,ROM,XUEMIUI]
+tags: [小米4, ROM, XUEMIUI]
 ---
 
 # 已有的特性
