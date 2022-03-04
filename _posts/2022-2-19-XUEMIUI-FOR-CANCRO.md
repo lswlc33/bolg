@@ -6,6 +6,8 @@ Author:
 tags: [小米4, ROM, XUEMIUI]
 ---
 
+这是一个小米4的MIUI10的官改刷机包
+
 # 已有的特性
 高级重启  
 核心破解  
@@ -27,5 +29,5 @@ MI SANS全局
 虽是卡线合一包但线刷我还没试过  
 
 # 下载链接  
-T G频道：@syhfl
+T G频道：@syhfl  
 ONEDRIVE: [点击查看](https://wbmsy-my.sharepoint.com/:u:/g/personal/lswlc33_wbmsy_onmicrosoft_com/EYa5DApCD2tMvgf-wNjH5c4BxQifcL6FVUUyIBWZiZxdCw?e=5Bl3gr)
