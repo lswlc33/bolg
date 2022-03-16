@@ -5,7 +5,7 @@ date: 2022-3-13
 Author:  
 tags: [小米4c,XUEMIUI]
 ---
-
+这是一个小米4C的MIUI10的官改刷机包  
 
 
 ## 特性
