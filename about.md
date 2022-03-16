@@ -9,6 +9,12 @@ permalink: /about/
 
 `你好！`我目前是一个`普通`的`高三学生`
 
+## 我的邮箱
+QQ邮箱：[lswlc33@qq.com](mailto:lswlc33@qq.com)  
+163邮箱：[lswlc33@163.com](mailto:lswlc33@163.com)  
+OUTLOOK：[lswlc33@outlook.com](mailto:lswlc33@outlook.com)  
+GMAIL：[lswlc33@gmail.com](mailto:lswlc33@gmail.com)  
+
 ## 你可以在以下地方找到我
 酷安：[点此查看](http://www.coolapk.com/u/2865572)  
 QQ：[点此添加](http://wpa.qq.com/msgrd?v=3&amp;uin=563436084&amp;site=qq&amp;menu=yes)  
