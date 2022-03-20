@@ -30,4 +30,4 @@ MI SANS全局
 
 # 下载链接  
 T G频道：@syhfl  
-ONEDRIVE: [点击查看](https://wbmsy-my.sharepoint.com/:u:/g/personal/lswlc33_wbmsy_onmicrosoft_com/EYa5DApCD2tMvgf-wNjH5c4BxQifcL6FVUUyIBWZiZxdCw?e=5Bl3gr)
+ONEDRIVE: [点击查看](https://pan.xn--fiqz59cpva341l.ml/PAN/%E8%BD%AF%E4%BB%B6/%E6%89%8B%E6%9C%BA/MIUI%E5%AE%98%E6%94%B9/CANCRO/)
