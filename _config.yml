@@ -39,8 +39,8 @@ navigation:
     url: /about
   - name: 标签
     url: /tags
-  - name: 友链
-    url: /friends
+  - name: 捐赠
+    url: /donate
     
 # 每页的文章数
 paginate: 50
