@@ -37,8 +37,8 @@ navigation:
     url: /
   - name: 关于
     url: /about
-  - name: 标签
-    url: /tags
+  - name: 撰写
+    url: https://github.com/lswlc33/blog/tree/master/_posts
   - name: 捐赠
     url: /donate
     
