@@ -7,7 +7,10 @@ permalink: /about/
 
 >这是一个自我介绍的页面，你可以在这里了解我的一些信息  
 
-`你好！`我目前是一个`普通`的`高三学生`
+`你好！`我目前是一个`普通`的`大一学生`  
+没了  
+  
+
 
 ## 我的邮箱
 QQ邮箱：[lswlc33@qq.com](mailto:lswlc33@qq.com)  
@@ -30,5 +33,5 @@ BILIBILI：[雪中明月](https://space.bilibili.com/275618785)
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><a href="http://a.topurl.cn/#/" target="_blank" rel="noreferrer noopener">短网址生成工具（已凉）</a></p>
+<p><a href="http://a.topurl.cn/#/" target="_blank" rel="noreferrer noopener">短网址生成工具（已凉）(又不凉了)</a></p>
 <!-- /wp:paragraph -->
