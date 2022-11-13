@@ -5,23 +5,39 @@ permalink: /about/
 ---
 
 
->这是一个自我介绍的页面，你可以在这里了解我的一些信息  
   
-`你好！`我目前是一个`普通`的`大一学生`（至少在2022年）  
-性别男，单身，特长是水（动词），梦想是家财万贯  
+  
 
-## 我的邮箱
-QQ邮箱：[lswlc33@qq.com](mailto:lswlc33@qq.com)  
-163邮箱：[lswlc33@163.com](mailto:lswlc33@163.com)  
-OUTLOOK：[lswlc33@outlook.com](mailto:lswlc33@outlook.com)  
-GMAIL：[lswlc33@gmail.com](mailto:lswlc33@gmail.com)  
 
-## 你可以在以下地方找到我
-酷安：[点此查看](http://www.coolapk.com/u/2865572)  
-QQ：[点此添加](http://wpa.qq.com/msgrd?v=3&amp;uin=563436084&amp;site=qq&amp;menu=yes)  
-Telegram：个人：[点此添加](https://t.me/aw_still_alive) 频道: [点此订阅](https://t.me/syhfl)  
-GITHUB：[点此查看](https://github.com/lswlc33)  
-BILIBILI：[雪中明月](https://space.bilibili.com/275618785)
+
+
+
+
+
+# 😶‍🌫️你好，朋友！
+>这是一个自我介绍的页面，你可以在这里了解我的一些信息
+
+![](https://img.shields.io/badge/%E5%90%8D%E5%AD%97-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88-blue)
+![](https://img.shields.io/badge/%E6%80%A7%E5%88%AB-%E7%94%B7-orange)
+![](https://img.shields.io/badge/%E5%9C%B0%E5%8C%BA-%E4%B8%AD%E5%9B%BD-red)
+![](https://img.shields.io/badge/%E8%AF%AD%E8%A8%80-Python-brightgreen)
+![](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-Pro%20Max%20Ultra-lightgrey)
+
+## 😶‍🌫️主页和博客
+Home:[Visit the page](https://xn--fiqz59cpva341l.ml/)  
+Blog:[Visit the page](https://blog.xn--fiqz59cpva341l.ml/)
+
+## 😶‍🌫️社交账号
+![](https://img.shields.io/badge/Github-lswlc33-lightgrey?style=flat-square)  
+![](https://img.shields.io/badge/Telegram-%40aw__still__alive-blue?style=flat-square)  
+![](https://img.shields.io/badge/Emal-lswlc33%40qq.com-brightgreen?style=flat-square)  
+![](https://img.shields.io/badge/QQ-563436084-9cf?style=flat-square)  
+![](https://img.shields.io/badge/Bilibili-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__-orange?style=flat-square)  
+![](https://img.shields.io/badge/Coolapk-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__PLUS-red?style=flat-square)  
+
+## 😶‍🌫️统计表格
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=lswlc33&show_icons=true&hide=contribs)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lswlc33&layout=compact)
 
 ## 常用网址
 
