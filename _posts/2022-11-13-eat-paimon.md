@@ -1,8 +1,9 @@
 ---
-title: [游戏]吃掉小派蒙
+title: 游戏-吃掉小派蒙
 date: 2022-09-15
 tags: [游戏]
 ---
+一个h5小游戏
 ## 开始
 闲来无事搞了一个
 源码[点击查看](https://github.com/lswlc33/nowhite)
