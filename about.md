@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 关于
+title: 关于我
 permalink: /about/
 ---
 
@@ -13,7 +13,7 @@ permalink: /about/
 
 
 
-
+# <center>雪中明月</center>
 # 😶‍🌫️你好，朋友！
 >这是一个自我介绍的页面，你可以在这里了解我的一些信息
 
@@ -28,12 +28,12 @@ Home:[Visit the page](https://xn--fiqz59cpva341l.ml/)
 Blog:[Visit the page](https://blog.xn--fiqz59cpva341l.ml/)
 
 ## 😶‍🌫️社交账号
-![](https://img.shields.io/badge/Github-lswlc33-lightgrey?style=flat-square)  
-![](https://img.shields.io/badge/Telegram-%40aw__still__alive-blue?style=flat-square)  
-![](https://img.shields.io/badge/Emal-lswlc33%40qq.com-brightgreen?style=flat-square)  
-![](https://img.shields.io/badge/QQ-563436084-9cf?style=flat-square)  
-![](https://img.shields.io/badge/Bilibili-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__-orange?style=flat-square)  
-![](https://img.shields.io/badge/Coolapk-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__PLUS-red?style=flat-square)  
+![](https://img.shields.io/badge/Github-lswlc33-lightgrey?style=flat-square)
+![](https://img.shields.io/badge/Telegram-%40aw__still__alive-blue?style=flat-square)
+![](https://img.shields.io/badge/Emal-lswlc33%40qq.com-brightgreen?style=flat-square)
+![](https://img.shields.io/badge/QQ-563436084-9cf?style=flat-square)
+![](https://img.shields.io/badge/Bilibili-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__-orange?style=flat-square)
+![](https://img.shields.io/badge/Coolapk-%E9%9B%AA%E4%B8%AD%E6%98%8E%E6%9C%88__PLUS-red?style=flat-square)
 
 ## 😶‍🌫️统计表格
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=lswlc33&show_icons=true&hide=contribs)
