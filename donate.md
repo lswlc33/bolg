@@ -10,6 +10,6 @@ permalink: /donate/
 
 
 ## 支付宝
-![支付宝.jpg](https://github.com/lswlc33/blog/blob/4f8a23e1b78816352ef869f85e31b85c5990e089/images/alp.jpg)  
+![支付宝.jpg](https://raw.githubusercontent.com/lswlc33/blog/4f8a23e1b78816352ef869f85e31b85c5990e089/images/alp.jpg)  
 ## 微信
-![微信支付.png](https://github.com/lswlc33/blog/blob/4f8a23e1b78816352ef869f85e31b85c5990e089/images/wcp.png)  
+![微信支付.png](https://raw.githubusercontent.com/lswlc33/blog/4f8a23e1b78816352ef869f85e31b85c5990e089/images/wcp.png)  
