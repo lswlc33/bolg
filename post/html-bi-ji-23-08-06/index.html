@@ -1,0 +1,317 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>html笔记——23-08-06 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    html笔记——23-08-06
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-08-07 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/T0OAoa6MQ/" class="post-tags">
+                            # javascript
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/mqOllQWm5/" class="post-tags">
+                            # css
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/d5PvkQsHr/" class="post-tags">
+                            # html
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="媒体查询">媒体查询</h2>
+<p><code>@media</code> 常用于响应式布局，规定了在不同的条件下的样式</p>
+<pre><code class="language-css">// 格式
+@media ('条件') {
+'样式'
+}
+</code></pre>
+<p>常见的格式:</p>
+<ul>
+<li>orientation: landscape</li>
+<li>min-width: 768px</li>
+<li>max-width: 768px</li>
+</ul>
+<h2 id="一些单位-vh-dvh-svh-em-rem">一些单位 (vh dvh svh em rem)</h2>
+<h3 id="vh-dvh-svh">vh dvh svh</h3>
+<p>这个单位是相对于浏览器的可视显示大小</p>
+<p><code>vh</code> 是一般的但是在手机等移动端可能会有一些其他的浏览器控件（地址栏，快捷栏）妨碍显示，为了解决这个问题，一般使用 <code>dvh</code> 或 <code>svh</code> ,前者是动态获取大小（如手机地址栏滑动时会隐藏）和最小显示大小</p>
+<h3 id="em-rem">em rem</h3>
+<p>em和rem都是相对的，em相对于父元素字体大小，rem相对于根元素字体大小</p>
+<h2 id="overflow">Overflow</h2>
+<p>这个属性用于决定当元素超出父元素显示范围时候的显示模式</p>
+<p>几种常用属性:</p>
+<ul>
+<li>
+<p>overflow: visible;</p>
+<p>直接超出去！</p>
+</li>
+<li>
+<p>overflow: hidden;</p>
+<p>被挡住看不到了！</p>
+</li>
+<li>
+<p>overflow: clip;</p>
+<p>切掉了不要了！</p>
+</li>
+<li>
+<p>overflow: scroll;</p>
+<p>横竖都能滚！</p>
+</li>
+<li>
+<p>overflow: auto;</p>
+<p>怎么滚？看着办！</p>
+</li>
+</ul>
+<h2 id="getelementbyxx-和-queryselector">getElementByxx 和 querySelector</h2>
+<p>querySelector 相较于前者可以使用css的选择器来选择元素，可能更灵活？</p>
+<p>下面是gpt写的:</p>
+<blockquote>
+<ol>
+<li><code>getElementById</code>：根据元素的 <code>id</code> 属性获取单个元素。返回匹配的第一个元素，因为 <code>id</code> 在&gt;文档中应该是唯一的。</li>
+</ol>
+<pre><code class="language-javascript">var element = document.getElementById(&quot;myElement&quot;);
+</code></pre>
+<ol>
+<li><code>getElementsByClassName</code>：根据元素的类名获取一组元素。返回一个类数组对象&gt;（HTMLCollection 或者 NodeList），包含所有具有指定类名的元素。</li>
+</ol>
+<pre><code class="language-javascript">var elements = document.getElementsByClassName(&quot;myClass&quot;);
+</code></pre>
+<ol>
+<li><code>getElementsByTagName</code>：根据元素的标签名获取一组元素。返回一个类数组对象&gt;（HTMLCollection 或者 NodeList），包含所有指定标签名的元素。</li>
+</ol>
+<pre><code class="language-javascript">var elements = document.getElementsByTagName(&quot;div&quot;);
+</code></pre>
+<ol>
+<li><code>querySelector</code>：根据 CSS 选择器获取单个元素。返回匹配的第一个元素。</li>
+</ol>
+<pre><code class="language-javascript">var element = document.querySelector(&quot;#myElement&quot;);
+</code></pre>
+<ol>
+<li><code>querySelectorAll</code>：根据 CSS 选择器获取一组元素。返回一个静态的 NodeList，包含所有匹&gt;配选择器的元素。</li>
+</ol>
+<pre><code class="language-javascript">var elements = document.querySelectorAll(&quot;.myClass&quot;);
+</code></pre>
+<p>需要注意的是，<code>getElementByxx</code> 系列方法返回的是类数组对象，而 <code>querySelector</code> 和 &gt;<code>querySelectorAll</code> 返回的是 NodeList。此外，<code>querySelector</code> 和 <code>querySelectorAll</code> &gt;支持更复杂的 CSS 选择器，而 <code>getElementByxx</code> 系列方法只能使用 id、类名和标签名进行</p>
+</blockquote>
+<h2 id="常见transform-动画">常见transform 动画</h2>
+<p>写动画之前要加<code>transition: 0.3s;</code>，不然没动画</p>
+<ol>
+<li>
+<p>平移 <code>translate()</code> ：<code>translateX()</code> <code>translateY()</code></p>
+</li>
+<li>
+<p>缩放 <code>scale()</code> ：<code>scaleX()</code> <code>scaleY()</code>(单横竖缩放)</p>
+</li>
+<li>
+<p>旋转 <code>rotate()</code> ：</p>
+</li>
+<li>
+<p>倾斜 <code>skew()</code> ：<code>skewX()</code> <code>skewY()</code></p>
+</li>
+<li>
+<p>3D转换（3D Transform）： <code>translate3d()</code>、<code>scale3d()</code>、<code>rotate3d()</code></p>
+</li>
+</ol>
+<h2 id="常见伪类">常见伪类</h2>
+<p>状态类</p>
+<ul>
+<li>
+<p>:hover</p>
+<p>鼠标悬停</p>
+</li>
+<li>
+<p>:active</p>
+<p>鼠标点击</p>
+</li>
+<li>
+<p>:focus</p>
+<p>是焦点</p>
+</li>
+<li>
+<p>:checked</p>
+<p>复选框选上了</p>
+</li>
+</ul>
+<p>逻辑类</p>
+<ul>
+<li>
+<p>:is()</p>
+<p>相当于小括号</p>
+</li>
+<li>
+<p>:not()</p>
+<p>猜猜谁没有收到邀请？是- :not()</p>
+</li>
+</ul>
+<p>伪元素来凑个热闹</p>
+<ul>
+<li>
+<p>::after</p>
+</li>
+<li>
+<p>::before</p>
+<p>在控件前后追加内容，同时分开样式</p>
+</li>
+</ul>
+<p>选择元素的:</p>
+<ol>
+<li><code>:first-child</code>：选择父元素中的第一个子元素。</li>
+<li><code>:last-child</code>：选择父元素中的最后一个子元素。</li>
+<li><code>:nth-child(n)</code>：选择父元素中的第n个子元素，其中n是一个数字。</li>
+<li><code>:nth-last-child(n)</code>：选择父元素中的倒数第n个子元素，其中n是一个数字。</li>
+</ol>
+<h2 id="css-选择器进阶">css 选择器进阶</h2>
+<p><strong>属性选择器</strong>：基于元素的属性值进行选择。</p>
+<ul>
+<li><strong>[attribute]</strong>：选择具有指定属性的元素。</li>
+<li><strong>[attribute=value]</strong>：选择属性值与指定值匹配的元素。</li>
+<li><strong>[attribute^=value]</strong>：选择属性值以指定值开头的元素。</li>
+</ul>
+<p><strong>符号 <code>&gt;</code></strong>:</p>
+<p>在 CSS 选择器中，符号 &gt; 表示子元素选择器，用于选择直接位于指定元素内的子元素。它的语法是通过将两个选择器用 &gt; 分隔开来。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/html-bi-ji-23-07-25/" class="post-title gt-a-link">
+                    html笔记——23-07-25
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

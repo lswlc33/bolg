@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Page Not Found</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .number {
+      font-size: 80px;
+      color: #666;
+      font-weight: bold;
+    }
+    .text {
+      font-size: 14px;
+      margin: 24px;
+      color: #333;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+    }
+    .btn {
+      padding: 8px 24px;
+      display: inline-block;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #efefef;
+      color: #333;
+      margin: 24px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .footer {
+      padding: 16px;
+      border-top: 1px solid #efefef;
+      color: #777;
+      font-weight: lighter;
+    }
+    .footer a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="number">T A T</div>
+    
+    <div class="text">
+      404 - Page not found
+      <br><br>
+      你来到了没有知识的荒原
+    </div>
+    <div class="btn-container">
+      <a class="btn" id="back">
+        返回上一个页面
+      </a>
+    </div>
+  </div>
+  <footer class="footer">
+    <a href="http://xn--fiqz59cpva341l.top">雪中明月</a> の <a href="https://blog.xn--fiqz59cpva341l.top/">博客</a>
+  </footer>
+  <script>
+    var back = document.getElementById('back')
+    back.onclick = function() { console.log('run...'); history.back() }
+  </script>
+</body>
+</html>

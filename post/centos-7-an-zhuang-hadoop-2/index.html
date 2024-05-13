@@ -1,0 +1,307 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Hadoop——Centos 7 安装 Hadoop（二） | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Hadoop——Centos 7 安装 Hadoop（二）
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-06-14 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5ox1dqgfn/" class="post-tags">
+                            # hadoop
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>主要是Hadoop的配置和启动</p>
+<!-- more -->
+<h1 id="1配置hadoop">1.配置hadoop</h1>
+<p><code>占位</code></p>
+<h2 id="11添加环境变量">1.1添加环境变量</h2>
+<p>暂无</p>
+<h2 id="12修改-hadoop-envsh">1.2修改 hadoop-env.sh</h2>
+<pre><code class="language-shell">cd /usr/hadoop-3.2.4/etc/hadoop/
+# 这个目录是 hadoop的安装路径/etc/hadoop/
+# 以下几乎所有操作都在这个目录进行
+</code></pre>
+<pre><code class="language-shell">vim hadoop-env.sh
+</code></pre>
+<pre><code class="language-shell"># 为hadoop设置java路径
+export JAVA_HOME=/usr/java/jdk1.8.0_202-amd64
+# 设置一些参数
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root
+</code></pre>
+<h2 id="13修改-core-sitexml">1.3修改 core-site.xml</h2>
+<pre><code class="language-shell">vim core-site.xml
+</code></pre>
+<pre><code class="language-shell">&lt;configuration&gt;
+    &lt;!-- 指定 NameNode 的地址 --&gt;
+    &lt;property&gt;
+    &lt;name&gt;fs.defaultFS&lt;/name&gt;
+    &lt;value&gt;hdfs://node1:8020&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定 hadoop 数据的存储目录 --&gt;
+    &lt;property&gt;
+    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+    &lt;value&gt;/usr/hadoop-3.2.4&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 配置 HDFS 网页登录使用的静态用户为 xxx --&gt;
+    &lt;property&gt;
+    &lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;
+    &lt;value&gt;root&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="14修改-hdfs-sitexml">1.4修改 hdfs-site.xml</h2>
+<pre><code class="language-shell">vim hdfs-site.xml
+</code></pre>
+<pre><code class="language-shell">&lt;configuration&gt;
+    &lt;!-- nn web 端访问地址--&gt;
+    &lt;property&gt;
+    &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+    &lt;value&gt;node2:9868&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="15修改-mapred-sitexml">1.5修改 mapred-site.xml</h2>
+<pre><code class="language-shell">vim mapred-site.xml
+</code></pre>
+<pre><code class="language-shell"># 指定MapReduce运行时的框架YARN
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="16修改-yarn-sitexml">1.6修改 yarn-site.xml</h2>
+<pre><code class="language-shell">vim yarn-site.xml
+</code></pre>
+<pre><code class="language-shell">&lt;configuration&gt; 
+    &lt;!-- 指定 ResourceManager 的地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;node1&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 指定 MR 走 shuffle --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="17修改-workers">1.7修改 workers</h2>
+<pre><code class="language-shell">vim workers
+</code></pre>
+<p>注释掉里面本来的<code>localhost</code>添加非node的虚拟机主机名</p>
+<pre><code class="language-shell"># 有几个加几个
+node2
+node3
+</code></pre>
+<h1 id="2克隆虚拟机">2克隆虚拟机</h1>
+<p>磕磕</p>
+<h2 id="21克隆">2.1克隆</h2>
+<p>先关闭当前虚拟机<br>
+路径：<code>右键虚拟机-管理-克隆</code><br>
+中间选择完整克隆，路径自选，其余默认</p>
+<h2 id="22修改虚拟机主机名称">2.2修改虚拟机主机名称</h2>
+<p>打开克隆虚拟机</p>
+<pre><code class="language-shell">vim /etc/hostname
+</code></pre>
+<p>把node1改为node2</p>
+<h2 id="23修改ip">2.3修改IP</h2>
+<pre><code class="language-shell">vim /etc/sysconfig/network-scripts/ifcfg-ens33
+# 分配ip
+IPADDR=&quot;192.168.140.141(142,123)&quot;
+</code></pre>
+<pre><code class="language-shell">service network restart
+</code></pre>
+<h2 id="24ssh免密登录配置">2.4ssh免密登录配置</h2>
+<p>创建密钥</p>
+<pre><code class="language-shell"> ssh-keygen 
+</code></pre>
+<p>分发密钥</p>
+<pre><code class="language-shell">ssh-copy-id node1
+ssh-copy-id node2
+ssh-copy-id node3
+</code></pre>
+<p>一会让你输入<code>yes</code>还要输入<code>密码</code></p>
+<h2 id="25-windows免密登录linux可选">2.5 windows免密登录linux（可选）</h2>
+<pre><code>ssh-keygen -t rsa
+# 上传密钥
+scp 生成的id_rsa.pub目录 root@IP地址:~/.ssh
+# 进入虚拟机终端
+root@IP地址
+cd .ssh/
+# 追加密钥
+cat id_rsa.pub &gt;&gt; authorized_keys
+</code></pre>
+<h1 id="3启动hadoop">3启动hadoop</h1>
+<h2 id="31启动">3.1启动</h2>
+<pre><code class="language-shell"># 格式化集群
+hdfs namenode -format
+# 启动（一键）
+start-all.sh
+# 启动（分布）
+start-dfs.sh
+start-yarn.sh
+</code></pre>
+<h2 id="32打开web面板">3.2打开web面板</h2>
+<pre><code class="language-shell"># 虚拟机里，两个都应该打开
+http://node1:8088
+http://node1:9870
+</code></pre>
+<p>可以直接在windows浏览器打开<a href="http://xn--node1IP-0k1r:8088">http://node1的IP:8088</a><a href="http://xn--node1IP-0k1r:9870">http://node1的IP:9870</a>看</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/centos-7-an-zhuang-hadoop/" class="post-title gt-a-link">
+                    Hadoop——Centos 7 安装 Hadoop（一）
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>CSS 概述 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    CSS 概述
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-17 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/mqOllQWm5/" class="post-tags">
+                            # css
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>等于没讲</p>
+<!-- more -->
+<h2 id="1什么是css">1.什么是CSS？</h2>
+<p>CSS（层叠样式表）是一种样式表语言，专门用来修饰HTML的</p>
+<h2 id="2-html-中嵌入-css-的方式">2. HTML 中嵌入 CSS 的方式</h2>
+<h3 id="21-内联定义">2.1 内联定义</h3>
+<p>格式:</p>
+<p><code>&lt;标签 style=&quot;样式名: 样式; 样式名: 样式;&quot;&gt;hello&lt;/标签&gt;</code></p>
+<pre><code class="language-html">&lt;div style=&quot;color: blueviolet;&quot;&gt;hello&lt;/div&gt;
+</code></pre>
+<h3 id="22-样式块定义">2.2 样式块定义</h3>
+<ol>
+<li>
+<p>常见的选择元素的方式:</p>
+<ul>
+<li>ID选择器</li>
+</ul>
+<pre><code class="language-css">#mydiv{
+    width: 100px;
+    height: 100px;
+}
+</code></pre>
+<ul>
+<li>标签选择器</li>
+</ul>
+<pre><code class="language-css">input {
+    /* 作用域当前页面中所有的XXX元素 */
+    width: 100px;
+    height: 100px;
+}
+</code></pre>
+<ul>
+<li>类选择器</li>
+</ul>
+<pre><code class="language-html">&lt;style&gt;
+    .student {
+        width: 100px;
+        height: 100px;
+    }
+&lt;/style&gt;
+&lt;div class=&quot;student&quot;&gt;hello&lt;/div&gt;
+</code></pre>
+</li>
+<li>
+<p>优先级</p>
+<p>ID选择器 &gt; 类选择器 &gt; 标签选择器</p>
+</li>
+</ol>
+<h2 id="23-外联定义">2.3 外联定义</h2>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/my.css&quot;&gt;
+</code></pre>
+<h2 id="3-常见的css样式">3. 常见的CSS样式</h2>
+<blockquote>
+<p>以下内容不如看书<br>
+<a href="http://css.doyoe.com/">这是书📖</a></p>
+</blockquote>
+<h3 id="31-display">3.1 <code>display</code></h3>
+<p>元素显示方式</p>
+<ul>
+<li><code>inline-block</code>  元素之后<strong>不添加</strong>换行符</li>
+<li><code>block</code> 元素之后<strong>添加</strong>换行符</li>
+<li><code>none</code>  隐藏</li>
+</ul>
+<h3 id="32-text-decoration">3.2 <code>text-decoration</code></h3>
+<p>文本修饰</p>
+<ul>
+<li><code>underline</code> 下划线</li>
+<li><code>none</code> 无</li>
+</ul>
+<h3 id="33-list-style-type">3.3 <code>list-style-type</code></h3>
+<p>列表前缀风格</p>
+<ul>
+<li><code>none</code> 无</li>
+<li><code>square</code></li>
+<li><code>disc</code></li>
+<li><code>circle</code></li>
+</ul>
+<h3 id="34-hover">3.4 <code>:hover</code></h3>
+<p>鼠标悬停</p>
+<pre><code class="language-css">a:hover{
+    color: burlywood;
+}
+</code></pre>
+<h3 id="35-内补丁-外补丁">3.5 内补丁、外补丁</h3>
+<ol>
+<li>
+<p>外补丁 <code>margin</code></p>
+<p>元素外部边距</p>
+<ul>
+<li>margin-top</li>
+<li>margin-bottom</li>
+<li>margin-left</li>
+<li>margin-right</li>
+</ul>
+</li>
+<li>
+<p>内补丁 <code>padding</code></p>
+<p>元素内部边距</p>
+<ul>
+<li>padding-top</li>
+<li>padding-bottom</li>
+<li>padding-right</li>
+<li>padding-left</li>
+</ul>
+</li>
+</ol>
+<h3 id="36-定位">3.6 定位</h3>
+<p><code>float</code><br>
+当前元素在父元素中的浮动效果</p>
+<p><code>position</code></p>
+<ul>
+<li>static</li>
+<li>relative</li>
+<li>absolute</li>
+<li>fixed</li>
+<li>sticky</li>
+</ul>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/html-bi-ji-qi-er/" class="post-title gt-a-link">
+                    HTML 笔记 —— 其二
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

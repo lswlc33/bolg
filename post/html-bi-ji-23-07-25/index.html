@@ -1,0 +1,317 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>html笔记——23-07-25 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    html笔记——23-07-25
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-26 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/T0OAoa6MQ/" class="post-tags">
+                            # javascript
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/mqOllQWm5/" class="post-tags">
+                            # css
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/d5PvkQsHr/" class="post-tags">
+                            # html
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>入门了三件套很激动，连夜模仿了一个UI出来，下面是一些笔记</p>
+<blockquote>
+<p>模仿的是 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web">ChatGPT-Next-Web</a></p>
+</blockquote>
+<!-- more -->
+<h2 id="随机数-radomint">随机数 <code>radomint</code></h2>
+<p>js 只有 <code>radom</code> 函数生成<code>0</code>到<code>1</code>的随机数，所以 <code>radomint</code> 要自己写</p>
+<pre><code class="language-js">// 前闭后开
+function randomint(a, b) {
+    num = Math.floor(Math.random() * (b - a)) + a;
+    return num;
+}
+// 前闭后闭（看看就好了）
+function randomint(a, b) {
+    num = Math.floor(Math.random() * (b - a + 1)) + a;
+    return num;
+}
+</code></pre>
+<h2 id="移动端适配">移动端适配</h2>
+<p>必写的好吧</p>
+<p>先是显示大小</p>
+<pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=0.75,user-scalable=no&quot;&gt;
+</code></pre>
+<p>再是布局调整，看看你是不是手机</p>
+<pre><code class="language-js">function isMobileDevice() {
+    return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+</code></pre>
+<p>看完了，是手机，那就开刀，该显示显示，该隐藏隐藏</p>
+<pre><code class="language-js">window.onload = function () {
+    if (isMobileDevice()) {
+        // 当前浏览器是手机浏览器
+    } else {
+        // 当前浏览器不是手机浏览器
+    }
+}
+</code></pre>
+<h2 id="垂直布局和水平布局">垂直布局和水平布局</h2>
+<p>外层写</p>
+<pre><code class="language-css">display: flex;
+flex-direction: column; // 垂直布局
+flex-direction: row;    // 水平布局
+
+// 扩展内容
+flex-wrap: nowrap;  // （默认）：不换行
+flex-wrap: wrap;    //  换行
+
+justify-content: center; // 对齐方式
+align-items: center;    // 也是，但不一样，具体看文档
+</code></pre>
+<p>内层写</p>
+<pre><code class="language-css">flex: 1;
+flex: 0;
+</code></pre>
+<p><code>flex</code> 属性是 <code>flex-grow</code> , <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0</code> <code>1</code> <code>auto</code>。后两个属性可选。<br>
+（写第一个就行了,因为 <code>flex</code> 比 <code>flex-grow</code> 短）</p>
+<h2 id="body-的默认-margin"><code>body</code> 的默认 <code>margin</code></h2>
+<p>body<code>默认居然是有</code>margin` 的，看他不爽一定要删掉</p>
+<pre><code class="language-css">body {
+    margin: 0px;
+}
+</code></pre>
+<h2 id="全局样式">全局样式</h2>
+<p><code>*</code> 是可以匹配所有元素的，可以一键设置初始字体样式或者是其他样式</p>
+<pre><code class="language-css">* {
+    text-align: center;
+}
+</code></pre>
+<h2 id="颜色的表示">颜色的表示</h2>
+<pre><code class="language-css">// 第一种 写英文
+white
+// 第二种 #开头的16进制表示
+#ooff66 
+// 第三种 rgb颜色表示
+rgb(246, 246, 246)
+// 第四种 在上面的基础上加上 a 
+rgba(0, 0, 0, 0.1)
+</code></pre>
+<h2 id="box-shadow-阴影"><code>box-shadow</code> 阴影</h2>
+<p><code>box-shadow</code> 属性用于在元素的框架上添加阴影效果。你可以在同一个元素上设置多个阴影效果，并用逗号将他们分隔开。该属性可设置的值包括<code>阴影的 X 轴偏移量</code>、<code>Y 轴偏移量</code>、<code>模糊半径</code>、<code>扩散半径</code>和<code>颜色</code>。<br>
+如果元素同时设置了 <code>border-radius</code> 属性，那么阴影也会有圆角效果</p>
+<blockquote>
+<p>在线阴影生成器，太好用啦 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator">看看</a></p>
+</blockquote>
+<p>几个参数看看</p>
+<ul>
+<li>
+<p>inset</p>
+<p>阴影在里面还是外面</p>
+</li>
+<li>
+<p>position x</p>
+</li>
+<li>
+<p>position y</p>
+<p>这是相对主元素的位置</p>
+</li>
+<li>
+<p>blur</p>
+<p>模糊程度</p>
+</li>
+<li>
+<p>spread</p>
+<p>扩散度（大小）</p>
+</li>
+</ul>
+<p>例子</p>
+<pre><code class="language-css">box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+</code></pre>
+<p><strong>这个属性文字也有，是专门的 <code>text-transform</code></strong></p>
+<h2 id="单位的意思和使用">单位的意思和使用</h2>
+<p>在CSS的计量单位体系中，可以分为<code>相对长度单位</code>和<code>绝对长度单位</code>：</p>
+<ul>
+<li>相对长度单位包括：em、ex、ch、rem、vw、vh、vmin、vmax、%</li>
+<li>绝对长度单位包括：cm、mm、in、px、pt、pt、pc</li>
+</ul>
+<ol>
+<li>
+<p>px：就是像素</p>
+</li>
+<li>
+<p>vh、vw</p>
+<blockquote>
+<p>在移动端体验极差啊哈，不要使用啊哈</p>
+</blockquote>
+<p>view height 窗口高度</p>
+<p>这里的窗口分成几种情况：</p>
+<ul>
+<li>在桌面端指的是浏览器的可视区域</li>
+<li>在移动端指的就是布局视口</li>
+</ul>
+</li>
+<li>
+<p>百分比</p>
+<p>相对于父元素的百分比</p>
+</li>
+<li>
+<p>不同单位的计算</p>
+<blockquote>
+<p>介绍<br>
+calc() 此 CSS 函数允许在声明 CSS 属性值时执行一些计算。它可以用在如下场合：&lt;length&gt;、&lt;frequency&gt;, &lt;angle&gt;、&lt;time&gt;、&lt;percentage&gt;、&lt;number&gt;、或 &lt;integer&gt;。</p>
+</blockquote>
+<p>例子：</p>
+<pre><code class="language-css">width: calc(100% - 80px);
+</code></pre>
+</li>
+</ol>
+<h2 id="动画效果">动画效果</h2>
+<pre><code class="language-css">transition: 样式名称 持续时间 曲率;
+</code></pre>
+<p>写到这差不多了</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/javascript/" class="post-title gt-a-link">
+                    Javascript 概述
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

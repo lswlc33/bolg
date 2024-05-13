@@ -1,0 +1,411 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Vue 相关笔记 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Vue 相关笔记
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-04-20 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/73XuYWxsC/" class="post-tags">
+                            # vue
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/d5PvkQsHr/" class="post-tags">
+                            # html
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>记录一些 Vue 知识</p>
+<!-- more -->
+<h1 id="常用标签属性">常用标签属性</h1>
+<h2 id="v-text-和-v-html">v-text 和 v-html</h2>
+<ul>
+<li><strong>v-text</strong></li>
+</ul>
+<p>相当于 <code>innerText</code> 但是响应式<br>
+一般不用 直接 <code>{{ text }}</code></p>
+<ul>
+<li><strong>v-html</strong></li>
+</ul>
+<p>相当于 <code>innerHtml</code> 但是响应式</p>
+<h2 id="v-show-和-v-if">v-show 和 v-if</h2>
+<p>区别，一个是隐藏，一个是小消失</p>
+<ul>
+<li><strong>v-show</strong></li>
+</ul>
+<p>根据值的真假，是否<strong>显示</strong>组件</p>
+<ul>
+<li><strong>v-if</strong></li>
+</ul>
+<p>根据值的真假，是否<strong>渲染</strong>组件</p>
+<h2 id="v-else-和-v-else-if">v-else 和 v-else-if</h2>
+<p>不好说，借来官网示例理解</p>
+<ul>
+<li><strong>v-else</strong></li>
+</ul>
+<pre><code class="language-html">&lt;div v-if=&quot;Math.random() &gt; 0.5&quot;&gt;Now you see me&lt;/div&gt;
+&lt;div v-else&gt;Now you don't&lt;/div&gt;
+</code></pre>
+<ul>
+<li><strong>v-else-if</strong></li>
+</ul>
+<pre><code class="language-html">&lt;div v-if=&quot;type === 'A'&quot;&gt;A&lt;/div&gt;
+&lt;div v-else-if=&quot;type === 'B'&quot;&gt;B&lt;/div&gt;
+&lt;div v-else-if=&quot;type === 'C'&quot;&gt;C&lt;/div&gt;
+&lt;div v-else&gt;Not A/B/C&lt;/div&gt;
+</code></pre>
+<h2 id="v-for">v-for</h2>
+<p>动态生成多个模板元素</p>
+<pre><code class="language-html">&lt;div v-for=&quot;item in items&quot;&gt;{{ item.text }}&lt;/div&gt;
+&lt;div v-for=&quot;(item, index) in items&quot;&gt;&lt;/div&gt;
+&lt;div v-for=&quot;(value, key) in object&quot;&gt;&lt;/div&gt;
+&lt;div v-for=&quot;(value, name, index) in object&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h2 id="v-on">v-on</h2>
+<p>类似 <code>onclick</code> <code>addEventerListener</code> 等<br>
+可以简写为<code>@</code></p>
+<pre><code class="language-html">&lt;button @click=&quot;要执行的函数或代码&quot;&gt;按钮&lt;/button&gt;
+</code></pre>
+<p>可以便捷的阻止事件冒泡通<br>
+过加入 <code>.prevent</code> <code>.stop</code> 来代替<br>
+<code>event.preventDefault()</code> 或 <code>event.stopPropagation()</code></p>
+<pre><code class="language-html">&lt;a @click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+&lt;form @submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+&lt;a @click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+</code></pre>
+<h1 id="v-bind-和-v-model">v-bind 和 v-model</h1>
+<p>使用在元素属性中（区别于 <code>{{ }}</code> ）的数据绑定</p>
+<ul>
+<li><strong>v-bind</strong></li>
+</ul>
+<p>数据单向绑定<br>
+(简写为 <code>:attr=&quot;varF&quot;</code>)</p>
+<pre><code class="language-html">&lt;a :herf=&quot;url&quot;&gt;{{ url }}&lt;/a&gt;
+</code></pre>
+<ul>
+<li><strong>v-model</strong></li>
+</ul>
+<p>数据双向绑定，通常用于表单元素<br>
+（代替 value 属性？）</p>
+<pre><code class="language-html">&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot; /&gt;
+&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
+</code></pre>
+<p>仅限：</p>
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li><code>components</code></li>
+</ul>
+<p>修饰符</p>
+<ul>
+<li><code>.lazy </code>- 监听 change 事件而不是 input</li>
+<li><code>.number</code> - 将输入的合法字符串转为数字</li>
+<li><code>.trim</code> - 移除输入内容两端空格</li>
+</ul>
+<h2 id="v-slot">v-slot</h2>
+<p>插槽相关，用于指定插槽名字</p>
+<pre><code class="language-html">&lt;template v-slot:slotname&gt; &lt;/template&gt;
+</code></pre>
+<p>可以缩写</p>
+<pre><code class="language-html">&lt;template #slotname&gt; &lt;/template&gt;
+</code></pre>
+<h1 id="其他">其他</h1>
+<h2 id="父组件到子组件的传参">父组件到子组件的传参</h2>
+<blockquote>
+<p>通过 <code>provide</code> 传出 <code>inject</code> 接收</p>
+</blockquote>
+<p>父组件</p>
+<pre><code class="language-js">import { provide } from &quot;vue&quot;;
+
+var a = ref(0);
+var b = () =&gt; {
+  console.log(1);
+};
+// 支持变量和函数
+provide(&quot;provide_a&quot;, a);
+provide(&quot;provide_fun_b&quot;, b);
+</code></pre>
+<p>子组件</p>
+<pre><code class="language-js">import { inject } from &quot;vue&quot;;
+
+var a = inject(&quot;provide_a&quot;);
+var b = inject(&quot;provide_fun_b&quot;);
+</code></pre>
+<h2 id="匿名插槽-和-具名插槽">匿名插槽 和 具名插槽</h2>
+<p>普通自闭合标签</p>
+<pre><code class="language-js">&lt;Com2 /&gt;
+</code></pre>
+<p>匿名插槽</p>
+<pre><code class="language-js">&lt;Com2&gt;
+  &lt;div&gt;插进来了&lt;/div&gt;
+&lt;/Com2&gt;
+</code></pre>
+<p>具名插槽，需要指定名称，有两个写法</p>
+<pre><code class="language-js">&lt;Com2&gt;
+    &lt;template v-slot=slotProps&gt;
+        &lt;div&gt;写法 1&lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template #slotProps&gt;
+        &lt;div&gt;写法 2&lt;/div&gt;
+    &lt;/template&gt;
+&lt;/Com2&gt;
+</code></pre>
+<p>com2.vue<br>
+两 <code>slot</code> 同时写的话根据传入的插槽类型自动选择生效</p>
+<pre><code class="language-js">&lt;template&gt;
+  &lt;div&gt;组件 2 开始&lt;/div&gt;
+
+  &lt;slot /&gt;
+  &lt;slot name=&quot;slotProps&quot; /&gt;
+
+  &lt;div&gt;组件 2 结束&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="子组件到父组件的传参">子组件到父组件的传参</h2>
+<p>父组件</p>
+<pre><code class="language-js">&lt;template&gt;
+    &lt;Com2 #slotProps=&quot;data&quot;&gt;
+        &lt;div&gt;{{ `${data.apple} + ${data.paper}` }}&lt;/div&gt;
+    &lt;/Com2&gt;
+&lt;/template&gt;
+</code></pre>
+<p>子组件</p>
+<pre><code class="language-js">&lt;template&gt;
+  &lt;div&gt;组件 2 开始&lt;/div&gt;
+
+  &lt;slot name=&quot;slotProps&quot; apple=&quot;apple&quot; paper=&quot;paper&quot; /&gt;
+
+  &lt;div&gt;组件 2 结束&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>##　生命周期函数</p>
+<p>一些 on 开头的函数</p>
+<p>父组件</p>
+<pre><code class="language-js">&lt;template&gt;
+	&lt;Div2 v-if=&quot;show&quot; /&gt;
+	&lt;input type=&quot;button&quot; value=&quot;切换&quot; @click=&quot;delete_div&quot;&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import Div2 from './components/2.vue'
+import { ref } from 'vue'
+
+var show = ref(true);
+var delete_div = () =&gt; {
+	show.value = !show.value;
+}
+&lt;/script&gt;
+
+</code></pre>
+<blockquote>
+<p><code>v-if</code> 不仅仅控制元素的可见性<br>
+它还会根据条件动态地创建或销毁 DOM 元素<br>
+因此可以用来测试挂载和卸载组件</p>
+</blockquote>
+<p>子组件 <code>2.vue</code></p>
+<pre><code class="language-js">&lt;template&gt;
+    num: {{ num }}
+    &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add&quot;&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import {
+    ref,
+    onBeforeMount, onMounted,
+    onBeforeUpdate, onUpdated,
+    onBeforeUnmount, onUnmounted,
+} from &quot;vue&quot;;
+
+var add = () =&gt; {
+    num.value++;
+};
+
+var num = ref(0);
+
+onBeforeMount(() =&gt; {
+    console.log(&quot;[挂载] 组件 1 挂载前&quot;);
+});
+onMounted(() =&gt; {
+    console.log(&quot;[挂载] 组件 1 挂载&quot;);
+});
+
+onBeforeUpdate(() =&gt; {
+    console.log(&quot;[更新] 组件 1 更新前&quot;);
+});
+onUpdated(() =&gt; {
+    console.log(&quot;[更新] 组件 1 更新&quot;);
+});
+
+
+onBeforeUnmount(() =&gt; {
+    console.log(&quot;[卸载] 组件 1 卸载前&quot;);
+});
+onUnmounted(() =&gt; {
+    console.log(&quot;[卸载] 组件 1 卸载&quot;);
+});
+&lt;/script&gt;
+
+</code></pre>
+<h2 id="toref-和-torefs"><code>toref</code> 和 <code>torefs</code></h2>
+<p>用于将响应式数据转换为 ref。</p>
+<pre><code class="language-js">import { reactive, toRef, toRefs } from &quot;vue&quot;;
+
+const state = reactive({
+  count: 0,
+});
+
+const state = reactive({
+  count: 0,
+  name: &quot;Vue&quot;,
+});
+
+const count = toRef(state, &quot;count&quot;);
+const { count, name } = toRefs(state);
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/da-shu-ju-wen-ti-ji-lu/" class="post-title gt-a-link">
+                    大数据疑难解决
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

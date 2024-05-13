@@ -1,0 +1,221 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Python 创建虚拟环境 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Python 创建虚拟环境
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-01-23 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/1eho6fu3a/" class="post-tags">
+                            # python
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>每次要用就想不起来命令，写个记录下</p>
+<!-- more -->
+<blockquote>
+<p>Q: 你玩 MC 为什么要开 <code>版本隔离</code> ？（为什么要用虚拟环境？）<br>
+A: 防止多个游戏版本的模块相互冲突，方便管理</p>
+</blockquote>
+<h1 id="一-python-自带-venv-库">一、 python 自带 <code>venv</code> 库</h1>
+<h2 id="1-创建虚拟环境">1. 创建虚拟环境</h2>
+<pre><code class="language-python">python -m venv .venv
+</code></pre>
+<h3 id="指定版本">指定版本</h3>
+<p>把 <code>python</code> 改为 指定 python.exe 的路径</p>
+<h3 id="命令参数用法">命令参数用法</h3>
+<pre><code>usage：venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
+[--upgrade] [--without-pip] [--prompt PROMPT] [--upgrade-deps]
+ENV_DIR [ENV_DIR ...]
+
+在一个或多个目标目录中创建虚拟 Python 环境。
+
+位置参数：
+ENV_DIR 要在其中创建环境的目录。
+
+可选参数：
+-h, --help 显示帮助消息并退出
+--clear 在创建环境之前删除环境目录的内容，如果它已经存在。
+--upgrade 升级环境目录以使用 Python 的此版本，假设 Python 已经在原地升级。
+--without-pip 跳过在虚拟环境中安装或升级 pip（pip 默认情况下是引导的）。
+--prompt PROMPT 为此环境提供替代提示前缀。
+--upgrade-deps 升级核心依赖项：pip 和 setuptools 到 PyPI 中的最新版本。
+
+一旦环境被创建，您可能希望激活它，例如通过在其 bin 目录中运行激活脚本。
+</code></pre>
+<h2 id="2-激活虚拟环境">2. 激活虚拟环境</h2>
+<pre><code class="language-shell"># 在 Windows 上
+.venv\Scripts\activate
+.venv\Scripts\activate.bat
+.venv\Scripts\activate.ps1
+# 在 linux 等系统上
+source .venv/bin/activate
+</code></pre>
+<h2 id="3-退出虚拟环境">3. 退出虚拟环境</h2>
+<pre><code class="language-shell">deactivate
+</code></pre>
+<h2 id="3-删除虚拟环境">3. 删除虚拟环境</h2>
+<p>删除 <code>.venv</code> 文件即可</p>
+<h1 id="二-virtualenv">二、virtualenv</h1>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>需要安装</li>
+<li>需要 <code>Python 3.7+</code></li>
+</ul>
+</blockquote>
+<h2 id="1-安装">1. 安装</h2>
+<pre><code class="language-python">pip install virtualenv
+</code></pre>
+<p>创建环境（在当前目录中创建文件夹）</p>
+<pre><code class="language-python">virtualenv .venv
+# 指定py版本
+virtualenv .venv -p=Python3.11.7
+</code></pre>
+<h2 id="2-激活与删除">2. 激活与删除</h2>
+<p>同 <code>一、2. 激活虚拟环境</code> 不多介绍</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/rust-ji-chu/" class="post-title gt-a-link">
+                    Rust 基础
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

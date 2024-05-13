@@ -1,0 +1,289 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Hive 环境配置 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Hive 环境配置
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-10-12 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/Y6ZGDHlkt/" class="post-tags">
+                            # hive
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5ox1dqgfn/" class="post-tags">
+                            # hadoop
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="1-安装-mysql">1. 安装 Mysql</h2>
+<p>官网链接：<a href="">https://dev.mysql.com/downloads/mysql/</a><br>
+找到合适自己系统的版本</p>
+<blockquote>
+<p>TIPS: centos 属于 Red Hat</p>
+</blockquote>
+<p>选择 yum 下载</p>
+<pre><code>Red Hat Enterprise Linux 7 / Oracle Linux 7 (Architecture Independent), RPM Package
+</code></pre>
+<pre><code class="language-shell"># 安装
+yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-10.noarch.rpm
+yum -y install mysql-community-server
+</code></pre>
+<pre><code class="language-shell"># 启动服务
+systemctl start mysqld
+# 开机自启
+systemctl enable mysqld
+</code></pre>
+<p>获取密码</p>
+<pre><code class="language-shell">grep 'temporary password' /var/log/mysqld.log
+</code></pre>
+<p>密码在最后</p>
+<blockquote>
+<p>2023-10-07T12:26:49.768296Z 6 [Note] [MY-010454] [Server] A temporary<br>
+password is generated for root@localhost: <strong>6eXFr#e;=slo</strong></p>
+</blockquote>
+<p>登录</p>
+<pre><code class="language-mysql">mysql -u root -p
+</code></pre>
+<p>修改密码策略</p>
+<pre><code class="language-sql">set global validate_password.policy=0;
+set global validate_password.length=0;
+set global validate_password.check_user_name=off;
+</code></pre>
+<p>修改密码为 root</p>
+<pre><code class="language-sql">alter user 'root'@'localhost' identified by 'root';
+</code></pre>
+<p>授权访问</p>
+<pre><code class="language-sql">use mysql;
+create user root@'%' identified by 'root';
+grant all privileges on *.* to root@'%' with grant option;
+flush privileges;
+</code></pre>
+<h2 id="2-安装-hive">2. 安装 Hive</h2>
+<p>官网：<a href="">https://dlcdn.apache.org/hive/</a><br>
+找到合适的版本</p>
+<p>下载解压进入</p>
+<pre><code class="language-shell">cd /user/
+wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz --no-check-certificate
+tar -zvxf apache-hive-3.1.3-bin.tar.gz
+rm -f apache-hive-3.1.3-bin.tar.gz
+cd apache-hive-3.1.3-bin
+</code></pre>
+<p>解决重复可能冲突的包</p>
+<pre><code class="language-shell">rm -f lib/guava-19.0.jar
+cp $HADOOP_HOME/share/hadoop/common/lib/guava-27.0-jre.jar ./lib/
+</code></pre>
+<p>修改<code>hive-env.sh</code></p>
+<pre><code class="language-shell">cd conf/
+
+mv hive-env.sh.template hive-env.sh
+vim hive-env.sh
+</code></pre>
+<pre><code class="language-shell">HADOOP_HOME=$HADOOP_HOME
+export HIVE_CONF_DIR=/user/hive/conf/
+export HIVE_AUX_JARS_PATH=/user/hive/lib/
+</code></pre>
+<p>修改<code>hive-site.xml</code></p>
+<pre><code class="language-shell">vim hive-site.xml
+</code></pre>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+&lt;configuration&gt;
+        &lt;property&gt;
+                &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;
+                &lt;value&gt;jdbc:mysql://node1:3306/hive?createDatabaseIfNotExist=true&lt;/value&gt;	
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;
+                &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;!-- mysql账号和密码 --&gt;
+                &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;
+                &lt;value&gt;root&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;
+                &lt;value&gt;root&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;!-- 关闭元数据存储授权  --&gt;
+        &lt;property&gt;
+                &lt;name&gt;hive.metastore.event.db.notification.api.auth&lt;/name&gt;
+                &lt;value&gt;false&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;!-- 关闭元数据存储版本的验证 --&gt;
+        &lt;property&gt;
+                &lt;name&gt;hive.metastore.schema.verification&lt;/name&gt;
+                &lt;value&gt;false&lt;/value&gt;
+        &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p><strong>添加mysql jdbc包</strong><br>
+进入网站 https://dev.mysql.com/downloads/connector/j/<br>
+选择 <code>Platform Independent</code><br>
+获取下载链接</p>
+<pre><code class="language-shell">cd lib
+# 下载
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.1.0.zip
+# 解压移动
+unzip mysql-connector-j-8.1.0.zip
+mv mysql-connector-j-8.1.0/mysql-connector-j-8.1.0.jar ./
+# 删除
+rm -rf mysql-connector-j-8.1.0.zip mysql-connector-j-8.1.0
+</code></pre>
+<p>初始化</p>
+<pre><code class="language-shell"># 返回hive
+cd ../
+bin/schematool -initSchema -dbType mysql -verbose
+</code></pre>
+<p>测试启动</p>
+<pre><code class="language-shell">bin/hive
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/scala-huan-jing-pei-zhi/" class="post-title gt-a-link">
+                    Scala 环境配置
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

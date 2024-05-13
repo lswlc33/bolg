@@ -1,0 +1,480 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Python 爬虫入门 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Python 爬虫入门
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-10-30 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/1eho6fu3a/" class="post-tags">
+                            # python
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>记录一下目前会的爬虫知识</p>
+<!-- more -->
+<h1 id="一-requests-库">一、Requests 库</h1>
+<h2 id="安装与导入">安装与导入</h2>
+<p>安装</p>
+<pre><code class="language-bash">pip install requests
+</code></pre>
+<p>导入模块</p>
+<pre><code class="language-python">import requests
+</code></pre>
+<h2 id="方法">方法</h2>
+<h3 id="请求类型">请求类型</h3>
+<ol>
+<li>get</li>
+<li>post</li>
+<li>put</li>
+<li>delete</li>
+<li>head</li>
+<li>options</li>
+</ol>
+<h3 id="示例get请求">示例（get请求）</h3>
+<pre><code class="language-python">r = requests.get(
+    url=&quot;&quot;,
+    headers={},
+    cookies=&quot;&quot;,
+    data={}
+)
+</code></pre>
+<h3 id="示例post请求">示例（post请求）</h3>
+<pre><code class="language-python">payload = dict(key1='value1', key2='value2')
+r = requests.post('https://httpbin.org/post', data=payload)
+</code></pre>
+<h2 id="输入">输入</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>str</td>
+<td>网站</td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>携带的参数</td>
+</tr>
+<tr>
+<td>headers</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cookies</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>timeout</td>
+<td></td>
+<td>不指定了 timeout 值，requests 不会自动进行超时处理</td>
+</tr>
+</tbody>
+</table>
+<h2 id="输出">输出</h2>
+<p>方法返回为一个类型为Response(requests.Response)的对象</p>
+<p>下面是一些常用的方法</p>
+<h3 id="apparent_encoding">apparent_encoding()</h3>
+<p>自动猜测网页编码</p>
+<h3 id="encodingstr">encoding(str)</h3>
+<p>指定网页编码，需要传入一个字符串参数</p>
+<h3 id="text">text()</h3>
+<p>返回网页内容</p>
+<h3 id="raise_for_status">raise_for_status()</h3>
+<p>网页状态码是4或5开头时（如404），自动抛出异常</p>
+<h3 id="content">content()</h3>
+<p>以二进制的形式返回网页内容（常用于非文本内容的保存如图片）</p>
+<blockquote>
+<p>保存图片示例</p>
+<pre><code class="language-python">with open('test.png','wb') as f:
+   f.write(requests.get(
+           url=&quot;&quot;
+       ))
+</code></pre>
+</blockquote>
+<h3 id="status_code">status_code()</h3>
+<p>返回网页状态码</p>
+<h1 id="二-beautifulsoup-库">二、BeautifulSoup 库</h1>
+<p>BeautifulSoup是一个Python库，用于从HTML和XML文件中提取数据。它提供了一种简单的方式来遍历HTML和XML文档的树形结构，并从中提取所需的数据。BeautifulSoup可以处理不规则的标记和嵌套标记，使得数据提取变得更加容易。</p>
+<p>官方文档：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/#">点击查看</a></p>
+<h2 id="安装与导入-2">安装与导入</h2>
+<p>安装</p>
+<pre><code class="language-bash">pip install beautifulsoup4
+</code></pre>
+<p>导入</p>
+<pre><code class="language-python">from bs4 import BeautifulSoup
+</code></pre>
+<h2 id="初始化bs4对象">初始化bs4对象</h2>
+<h3 id="beautifulsoup">BeautifulSoup()</h3>
+<p>这样用</p>
+<pre><code class="language-python">soup = BeautifulSoup(
+    markup=&quot;&quot;,
+    builder=&quot;&quot;
+)
+</code></pre>
+<h3 id="参数说明">参数说明</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>markup</td>
+<td>网页</td>
+<td><code>&quot;str网页内容&quot;</code>或<code>open(&quot;1.html&quot;)</code>或<code>requests.get(&quot;&quot;).text</code></td>
+</tr>
+<tr>
+<td>builder</td>
+<td>解析器</td>
+<td><code>html.parser</code> 或 <code>lxml</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="对象属性的访问与修改">对象属性的访问与修改</h2>
+<p><strong>tag的属性操作方法与字典一样</strong>！</p>
+<pre><code class="language-python"># 示例HTML
+soup = BeautifulSoup('&lt;b class=&quot;boldest&quot;&gt;Extremely bold&lt;/b&gt;')
+</code></pre>
+<pre><code class="language-python"># 访问元素
+soup.b
+</code></pre>
+<blockquote>
+<p><code>&lt;b class=&quot;boldest&quot;&gt;Extremely bold&lt;/b&gt;</code></p>
+</blockquote>
+<pre><code class="language-python"># 属性修改与访问
+soup.b[&quot;class&quot;] = &quot;new_boldest&quot;
+soup.b[&quot;class&quot;]
+</code></pre>
+<blockquote>
+<p>['new_boldest']</p>
+</blockquote>
+<h3 id="取出文字">取出文字</h3>
+<pre><code class="language-python">soup.b.text
+# 不需要括号
+</code></pre>
+<h2 id="查找元素">查找元素</h2>
+<h3 id="1-find和find_all">1. find()<code>和</code>find_all()</h3>
+<p>标题对应: 返回查找到的元素的<strong>第一个</strong>  与  返回查找到的元素的<strong>列表</strong></p>
+<p>例子：</p>
+<pre><code class="language-python"># 查找 标签是p 的元素
+soup.find_all(&quot;p&quot;)
+# 查找 标签是p、CSS类名title的元素
+soup.find_all(&quot;p&quot;, &quot;link2&quot;)
+
+# 查找 包含id属性 的元素
+soup.find_all(id=True)
+# 查找 id=link2 的元素
+soup.find_all(id=&quot;link2&quot;)
+
+# 查找 标签是p、id=link2 的元素
+soup.find_all(&quot;p&quot;, id=&quot;link2&quot;)
+</code></pre>
+<h3 id="2-select_one和select">2. select_one()和select()</h3>
+<p>标题对应: 返回查找到的元素的<strong>第一个</strong>  与  返回查找到的元素的<strong>列表</strong></p>
+<p>通过在<code>.select()</code> 方法中传入字符串参数, 即可使用<strong>CSS选择器</strong>的语法查找</p>
+<p>例子：</p>
+<pre><code class="language-python">soup.select(&quot;p &gt; a:nth-of-type(2)&quot;)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]
+
+soup.select(&quot;p &gt; #link1&quot;)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]
+</code></pre>
+<h1 id="三-lxml-库xpath">三、lxml 库（Xpath）</h1>
+<p>lxml是Python中一个非常流行的XML和HTML处理库，它提供了一个XPath解析器，可以使用XPath表达式来查找和提取XML和HTML文档中的数据。</p>
+<p>XPath是一种用于在XML和HTML文档中定位元素和属性的语言。XPath表达式可以用于选择文档中的特定元素或属性，或者从文档中提取特定的数据。</p>
+<h2 id="安装与导入-3">安装与导入</h2>
+<p>安装</p>
+<pre><code class="language-bash">pip install lxml
+</code></pre>
+<p>导入</p>
+<pre><code class="language-python">from lxml import etree
+</code></pre>
+<h2 id="初始化xpath解析对象">初始化XPath解析对象</h2>
+<p>lxml 支持XPath语法</p>
+<pre><code class="language-python">html=etree.HTML(网页)
+</code></pre>
+<h2 id="通过xpath查找">通过XPath查找</h2>
+<pre><code class="language-python">html.xpath('xpath表达式')
+</code></pre>
+<p>返回的一定是一个<strong>列表</strong>！</p>
+<blockquote>
+<p>如何快速获取XPath表达式：</p>
+<p>浏览器开发者工具-元素</p>
+<p>右键目标元素 - 复制 - 复制XPath</p>
+</blockquote>
+<h2 id="xpath语法">XPath语法</h2>
+<ol>
+<li>
+<p>选择元素：使用元素名称选择元素，例如：<code>&lt;book&gt;</code> 选择所有 <code>&lt;book&gt;</code> 元素。</p>
+</li>
+<li>
+<p>选择属性：使用 <code>@</code> 符号选择属性，例如：<code>@id</code> 选择所有 <code>id </code>属性。</p>
+</li>
+<li>
+<p>路径表达式：使用 <code>/ </code>符号表示从根节点开始的路径，例如：<code>/bookstore/book </code>选择所有根节点为 <code>bookstore</code> 的子节点 <code>book</code>。</p>
+</li>
+<li>
+<p>选择子元素：使用 <code>/ </code>符号选择子元素，例如：bookstore/book/title 选择所有 <code>bookstore </code>元素下的 <code>book </code>元素下的 title 元素。</p>
+</li>
+<li>
+<p>选择父元素：使用 <code>..</code> 符号选择父元素，例如：<code>bookstore/book/.. </code>选择所有 <code>bookstore</code> 元素下的 <code>book </code>元素的父元素。</p>
+</li>
+<li>
+<p>选择当前元素：使用 <code>.</code> 符号选择当前元素，例如：<code>bookstore/book/./title</code> 选择所有 <code>bookstore </code>元素下的 <code>book </code>元素下的当前元素 <code>title </code>元素。</p>
+</li>
+<li>
+<p>选择多个元素：使用<code>|</code>符号选择多个元素，例如：<code>//book | //cd</code> 选择所有 <code>book </code>和 <code>cd </code>元素。</p>
+</li>
+<li>
+<p>选择具有特定属性值的元素：使用 <code>[@attribute='value'] </code>选择具有特定属性值的元素，例如：<code>//book[@category='children']</code> 选择所有 <code>category </code>属性为 <code>children </code>的 <code>book </code>元素。</p>
+</li>
+<li>
+<p>选择具有特定文本值的元素：使用 <code>[text()='value']</code> 选择具有特定文本值的元素，例如：<code>//title[text()='Harry Potter']</code> 选择所有文本值为 <code>Harry Potter</code> 的 <code>title </code>元素。</p>
+</li>
+<li>
+<p>选择具有特定位置的元素：使用 <code>[position()='value']</code> 选择具有特定位置的元素，例如：<code>//book[position()=1]</code> 选择第一个 <code>book </code>元素。</p>
+</li>
+</ol>
+<blockquote>
+<p>以上由GPT生成</p>
+</blockquote>
+<h1 id="四-scrapy">四、Scrapy</h1>
+<p>Scrapy是一个用于爬取网站数据的Python框架。它提供了一种简单而强大的方式来定义爬取网站的方式，并且可以自动化地处理从网站中提取的数据。Scrapy框架包括了一些核心组件，如爬虫引擎、调度器、下载器、管道等，这些组件可以协同工作，使得爬虫的开发和维护变得更加容易。</p>
+<h2 id="安装与准备">安装与准备</h2>
+<p>安装</p>
+<pre><code class="language-python">pip install scrapy
+</code></pre>
+<p>验证是否安装成功</p>
+<p>在终端输入<code>scrapy</code>,结果如下</p>
+<pre><code class="language-bash">&gt; scrapy
+Scrapy 2.11.0 - no active project
+
+Usage:
+  scrapy &lt;command&gt; [options] [args]
+
+Available commands:
+  bench         Run quick benchmark test
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+
+  [ more ]      More commands available when run from project directory
+
+Use &quot;scrapy &lt;command&gt; -h&quot; to see more info about a command
+</code></pre>
+<h2 id="基本命令">基本命令</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>startproject</td>
+<td>创建一个scrapy项目</td>
+<td>scrapy startproject myproject</td>
+</tr>
+<tr>
+<td>genspider</td>
+<td>创建一个爬虫（在项目下）</td>
+<td>scrapy genspider myspider example.com(目标网址)</td>
+</tr>
+<tr>
+<td>runspider</td>
+<td>运行这个爬虫</td>
+<td>scrapy runspider myspider.py</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他">其他</h2>
+<p>学习scrapy没什么意思，用处也不大，更多是作为教学工具，我就不往下写了</p>
+<h1 id="五-selenium">五、Selenium</h1>
+<p>Selenium是一个用于<strong>自动化</strong>Web应用程序测试的强大工具。它提供了一个用于模拟用户在浏览器中操作的框架，可以用于测试Web应用程序的功能性和性能。</p>
+<h2 id="导入包">导入包</h2>
+<pre><code class="language-shell">pip install selenium
+</code></pre>
+<h2 id="下载浏览器驱动">下载浏览器驱动</h2>
+<p>edge https://msedgewebdriverstorage.z22.web.core.windows.net<br>
+Chrome https://chromedriver.storage.googleapis.com/index.html<br>
+Firefox https://github.com/mozilla/geckodriver/releases<br>
+Opera https://github.com/operasoftware/operachromiumdriver/releases</p>
+<p>下载符合自己浏览器的驱动（360搜狗什么国产浏览器就不要爬了）</p>
+<h2 id="驱动配置">驱动配置</h2>
+<p>两种方式选择其一</p>
+<ol>
+<li>
+<p>添加到系统的<code>Path</code>目录</p>
+</li>
+<li>
+<p>在python代码中声明驱动路径</p>
+<pre><code class="language-python">webdriver.Chrome(executable_path='驱动目录')
+</code></pre>
+</li>
+</ol>
+<p>待写。。。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/mongodb-1st/" class="post-title gt-a-link">
+                    MongoDB 与 Python Mongodb
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

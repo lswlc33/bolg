@@ -1,0 +1,305 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>在 Vue 中使用 Pinia | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    在 Vue 中使用 Pinia
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-04-23 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5q_yTOFdU/" class="post-tags">
+                            # pinia
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/73XuYWxsC/" class="post-tags">
+                            # vue
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/d5PvkQsHr/" class="post-tags">
+                            # html
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>Pinia 符合直觉的 Vue.js 状态管理库 (localStorage 超级进化版本)</p>
+<!-- more -->
+<h1 id="一-基本使用">一、 基本使用</h1>
+<p>想要在 vue 项目中使用主要有以下几个步骤</p>
+<h2 id="1-安装-pinia">1. 安装 pinia</h2>
+<pre><code class="language-shell">npm install pinia
+</code></pre>
+<h2 id="2-初始化改写-mainjs">2. 初始化（改写 main.js）</h2>
+<p>添加以下内容</p>
+<pre><code class="language-js">// 导入
+import { createPinia } from &quot;pinia&quot;;
+// 创建对象
+const pinia = createPinia();
+</code></pre>
+<p>同时需要在默认 app 上添加 pinia</p>
+<pre><code class="language-js">// 原本可能是这样
+// createApp(App).mount(&quot;#app&quot;);
+
+// 需要改写成下面的样子
+const app = createApp(App);
+app.mount(&quot;#app&quot;);
+
+//添加这个
+app.use(pinia);
+</code></pre>
+<h2 id="3-定义-store">3. 定义 store</h2>
+<ul>
+<li>在 <code>vue</code> 项目的 <code>src</code> 目录下新建文件夹 <code>stores</code></li>
+<li>在 <code>stores</code> 下新建一个 <code>xueStore.js</code> (文件名随意)</li>
+</ul>
+<p>文件内容基本格式如下</p>
+<pre><code class="language-js">import { defineStore } from &quot;pinia&quot;;
+import { ref } from &quot;vue&quot;;
+
+// 名字规范：use{yourStoreName}Store
+export const useXueStore = defineStore(&quot;xue&quot;, () =&gt; {
+  // 这里写一些东西
+  const name = ref(&quot;雪中明月&quot;);
+  const level = ref(18);
+
+  const levelUp = () =&gt; {
+    level.value++;
+  };
+
+  // 注意要 return
+  return { name, level, levelUp };
+});
+</code></pre>
+<h2 id="4-使用-store">4. 使用 store</h2>
+<p>现在万事具备，你可以在项目随意使用了<br>
+找到一个组件，例如 <code>App.vue</code></p>
+<pre><code class="language-html">&lt;script setup&gt;
+  import { useXueStore } from &quot;./stores/xueStore&quot;;
+  const XueStore = useXueStore();
+&lt;/script&gt;
+</code></pre>
+<p>只需两步即可获取 store ，接下来试试使用里面的内容，补全 <code>template</code> 部分</p>
+<pre><code class="language-html">&lt;template&gt;
+  name: {{ XueStore.name }} &lt;br /&gt;
+  age: {{ XueStore.level }} &lt;br /&gt;
+  &lt;button @click=&quot;XueStore.levelUp&quot;&gt;levelUp&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<h1 id="二-数据持久化">二、 数据持久化</h1>
+<p>不难发现，网页一刷新，上面的数据就会变成初始值，也许这不是我们大概不是我们想要的<br>
+我们需要添加一个 <code>pinia</code> 插件 <code>pinia-plugin-persistedstate</code></p>
+<h2 id="1-安装插件">1. 安装插件</h2>
+<pre><code class="language-shell">npm install pinia-plugin-persistedstate
+</code></pre>
+<h2 id="2-初始化改写-mainjs-2">2. 初始化（改写 main.js）</h2>
+<p>添加以下内容</p>
+<pre><code class="language-js">// 导入
+import piniaPluginPersistedstate from &quot;pinia-plugin-persistedstate&quot;;
+</code></pre>
+<p>同时需要在 pinia 上添加 插件</p>
+<pre><code class="language-js">pinia.use(piniaPluginPersistedstate);
+</code></pre>
+<h2 id="3-开始使用">3. 开始使用</h2>
+<p>配置很简单，只需要添加一行</p>
+<pre><code class="language-js">{
+  persist: true;
+}
+</code></pre>
+<p>依旧是 <code>xueStore.js</code></p>
+<pre><code class="language-js">import { defineStore } from &quot;pinia&quot;;
+import { ref } from &quot;vue&quot;;
+
+export const useXueStore = defineStore(
+  &quot;xue&quot;,
+  () =&gt; {
+    const name = ref(&quot;雪中明月&quot;);
+    const level = ref(18);
+    const levelUp = () =&gt; {
+      level.value++;
+    };
+    return { name, level, levelUp };
+  },
+  // 在这里添加一行,记得添加上面的**逗号**
+  { persist: true }
+);
+</code></pre>
+<blockquote>
+<p>注意：到此插件会按照默认配置进行本地化，<br>
+如果需要进一步的自定义<br>
+请查阅：<a href="https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/config.html">插件配置 Doc</a></p>
+</blockquote>
+<h2 id="4-对比-localstorage">4. 对比 localstorage ？</h2>
+<p>优点 ：<strong>全自动</strong></p>
+<h1 id="三-补充信息">三、 补充信息</h1>
+<h2 id="1-解构">1. 解构</h2>
+<p>和 reactive 一样，直接解构会使数据失去响应式<br>
+不同于 <code>vue</code> 的 <code>toRef()</code>，对于 <code>pinia</code>，<br>
+需要使用 <code>storeToRefs()</code></p>
+<pre><code class="language-js">import { storeToRefs } from &quot;pinia&quot;;
+</code></pre>
+<h2 id="2-setup-store">2. Setup Store</h2>
+<p><code>1.2</code> 中定义的方法官方称为 <code>Setup Store</code><br>
+在 <code>Setup Store</code> 中：</p>
+<ul>
+<li><code>ref()</code> 就是 <code>state</code> 属性</li>
+<li><code>computed()</code> 就是 <code>getters</code></li>
+<li><code>function()</code> 就是 <code>actions</code></li>
+</ul>
+<h2 id="3-state-getters-actions-的解释">3. state getters actions 的解释</h2>
+<h3 id="state">state</h3>
+<blockquote>
+<p>在大多数情况下，state 都是你的 store 的核心。人们通常会先定义能代表他们 APP 的 state。在 Pinia 中，state 被定义为一个返回初始状态的函数。这使得 Pinia 可以同时支持服务端和客户端。</p>
+</blockquote>
+<p><code>state</code> 里面写的是初始值</p>
+<h3 id="getters">getters</h3>
+<blockquote>
+<p>Getter 完全等同于 store 的 state 的计算值。可以通过 defineStore() 中的 getters 属性来定义它们。推荐使用箭头函数</p>
+</blockquote>
+<p>相当于 <code>computed()</code></p>
+<h3 id="action">Action</h3>
+<blockquote>
+<p>Action 相当于组件中的 method。它们可以通过 defineStore() 中的 actions 属性来定义，并且它们也是定义业务逻辑的完美选择。</p>
+</blockquote>
+<p>是普通的函数</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/html5-li-de-localstorage-he-sessionstorage/" class="post-title gt-a-link">
+                    HTML5里的 localStorage 和 sessionStorage
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

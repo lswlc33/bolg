@@ -1,0 +1,437 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>HTML 笔记 —— 其一 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    HTML 笔记 —— 其一
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-14 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/d5PvkQsHr/" class="post-tags">
+                            # html
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="11-基本结构">1.1 基本结构</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;title&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="12-基本标签">1.2 基本标签</h2>
+<pre><code class="language-html">&lt;p&gt;hello&lt;/p&gt;     
+# 段落标记
+&lt;h1&gt;hello&lt;h1/&gt;   
+# 标题字
+&lt;br&gt;        
+# 换行
+&lt;hr color=&quot;red&quot;&gt;
+# 水平线
+&lt;pre&gt;
+    for i in range(10):
+        print(i)
+&lt;/pre&gt;
+# 预留格式
+
+&lt;b&gt;hello&lt;/b&gt;
+# 粗体字
+
+&lt;i&gt;hello&lt;/i&gt;
+# 斜体字
+
+&lt;ins&gt;hello&lt;/ins&gt;
+# 插入字（下划线）
+
+&lt;del&gt;hello&lt;/del&gt;
+# 删除字（删除线）
+
+&lt;sup&gt;hello&lt;/sup&gt; 
+# 右上角加字（上标）
+
+&lt;sub&gt;hello&lt;/sub&gt;
+# 右下角加字（下标）
+
+&lt;font size=&quot;10&quot; color=&quot;blue&quot;&gt;hello&lt;/font&gt;
+# font标签
+</code></pre>
+<h2 id="2-实体符号">2. 实体符号</h2>
+<pre><code class="language-html">&amp;nbsp;
+# 空格符
+
+&lt; &amp;lt;  &gt; &amp;gt;
+# 大于号、小于号
+</code></pre>
+<h2 id="3-表格">3. 表格</h2>
+<h3 id="31-基本表格">3.1 基本表格</h3>
+<pre><code class="language-html">&lt;table width=&quot;200px&quot; height=&quot;100px&quot; border=&quot;2px&quot;&gt;
+    # 长宽、居中
+    &lt;tr align=&quot;center&quot;&gt;
+        &lt;td&gt;111&lt;/td&gt;
+        &lt;td&gt;444&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td align=&quot;center&quot;&gt;222&lt;/td&gt;
+        &lt;td&gt;555&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;333&lt;/td&gt;
+        &lt;td&gt;666&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h3 id="32-表格合并">3.2 表格合并</h3>
+<p>上下合并 <code>&lt;rowspan=&quot;2&quot;&gt;</code></p>
+<pre><code class="language-html">&lt;table width=&quot;200px&quot; height=&quot;100px&quot; border=&quot;2px&quot;&gt;
+    &lt;tr align=&quot;center&quot;&gt;
+        &lt;td&gt;111&lt;/td&gt;
+        &lt;td rowspan=&quot;2&quot;&gt;444&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr align=&quot;center&quot;&gt;
+        &lt;td&gt;222&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<p>左右并列 <code>&lt;colspan=&quot;2&quot;&gt;</code></p>
+<pre><code class="language-html">&lt;table width=&quot;200px&quot; height=&quot;100px&quot; border=&quot;2px&quot;&gt;
+    &lt;tr align=&quot;center&quot;&gt;
+        &lt;td colspan=&quot;2&quot;&gt;111&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr align=&quot;center&quot;&gt;
+        &lt;td&gt;222&lt;/td&gt;
+        &lt;td&gt;333&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h3 id="33-th-标签">3.3 <code>&lt;th&gt;</code> 标签</h3>
+<p>居中并加粗 <code>&lt;th&gt;</code></p>
+<pre><code class="language-html">    &lt;table width=&quot;200px&quot; height=&quot;100px&quot; border=&quot;2px&quot;&gt;
+        &lt;tr align=&quot;center&quot;&gt;
+            &lt;th&gt;222&lt;/th&gt;
+            &lt;th&gt;333&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr align=&quot;center&quot;&gt;
+            &lt;td&gt;222&lt;/td&gt;
+            &lt;td&gt;333&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+</code></pre>
+<h3 id="34-表格三部分">3.4 表格三部分</h3>
+<p>表头 <code>&lt;thead&gt;</code>、表体 <code>&lt;tbody&gt;</code>、表脚 <code>&lt;tfoot&gt;</code><br>
+不显示在网页</p>
+<pre><code class="language-html"> &lt;table width=&quot;200px&quot; height=&quot;100px&quot; border=&quot;2px&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;222&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &lt;/tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;222&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;td&gt;222&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+</code></pre>
+<h2 id="4-背景颜色和背景图片">4. 背景颜色和背景图片</h2>
+<p>背景颜色</p>
+<pre><code class="language-html">&lt;body bgcolor=&quot;red&quot;&gt;
+&lt;!--code--&gt;
+&lt;/body&gt;
+</code></pre>
+<p>背景图片</p>
+<pre><code class="language-html">&lt;body background=&quot;pic.jpg&quot;&gt;
+&lt;!--code--&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="5-图片">5. 图片</h2>
+<p>浮动于浏览器窗口的图片元素<br>
+<code>width=&quot;&quot;</code> 设置宽度,同时高度会等比例缩放<br>
+<code>title=&quot;&quot;</code> 鼠标悬停文字<br>
+<code>alt=&quot;&quot;</code> 图片不存在信息</p>
+<pre><code class="language-html">&lt;img src=&quot;pic.jpg&quot; 
+     width=&quot;100px&quot; 
+     title=&quot;is a pic&quot;
+     alt=&quot;no pic found&quot;&gt;
+</code></pre>
+<h2 id="6-超链接">6. 超链接</h2>
+<h3 id="61-href-设置打开什么">6.1 <code>href=&quot;&quot;</code> 设置打开什么</h3>
+<pre><code class="language-html">&lt;!--绝对路径--&gt;
+&lt;a href=&quot;https://www.baidu.com&quot;&gt;baidu&lt;/a&gt;
+&lt;!--相对路径--&gt;
+&lt;a href=&quot;more&quot;&gt;baidu&lt;/a&gt;
+</code></pre>
+<h3 id="62-target-设置在哪打开">6.2 <code>target=&quot;&quot;</code> 设置在哪打开</h3>
+<p>默认值是 <code>_self</code></p>
+<ul>
+<li><code>_blank</code> 新窗口显示</li>
+<li><code>_self</code> 当前窗口</li>
+<li><code>_parent</code> 父窗口</li>
+<li><code>_top</code> 顶级窗口（最外层）</li>
+</ul>
+<blockquote>
+<p>内嵌窗口<br>
+<code>&lt;iframe src=&quot;&quot;&gt;&lt;/iframe&gt;</code></p>
+</blockquote>
+<h2 id="7-列表">7. 列表</h2>
+<h3 id="71-有序列表">7.1 有序列表</h3>
+<p><code>type=&quot;&quot;</code> 序号样式</p>
+<ul>
+<li><code>1</code>   默认，数字编号</li>
+<li><code>A</code>   大写字母</li>
+<li><code>a</code>   小写字母</li>
+<li><code>I</code>   大写罗马编号</li>
+<li><code>i</code>   小写罗马编号</li>
+</ul>
+<pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;chiana&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;11:20&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;USA&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h3 id="71-无序列表">7.1 无序列表</h3>
+<p><code>type=&quot;&quot;</code> 序号样式</p>
+<ul>
+<li><code>circle</code>   圆圈</li>
+<li><code>square</code>   方块</li>
+<li><code>disc</code>     实心圆</li>
+</ul>
+<pre><code class="language-HTML">&lt;ul&gt;
+    &lt;li&gt;china&lt;/li&gt;
+    &lt;li&gt;USA&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>无序嵌套无序列表</p>
+<pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;china&lt;/li&gt;
+    &lt;ul&gt;
+        &lt;li&gt;shanghai&lt;/li&gt;
+        &lt;li&gt;beijing&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;li&gt;USA&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="8-表单">8. 表单</h2>
+<h3 id="81-什么是表单有什么用">8.1 什么是表单，有什么用 ?</h3>
+<p><code>表单</code>可以用来收集用户的数据，提交表单时，可以向服务器发送请求，并且还可以携带用户填写的数据</p>
+<h3 id="82-基本表单">8.2 基本表单</h3>
+<pre><code class="language-html">&lt;form action=&quot;&quot; method=&quot;&quot;&gt;&lt;/form&gt;
+</code></pre>
+<p><code>action</code> 属性用来指定请求路径，也就是说数据提交的时候，提交给谁<br>
+<code>action</code> 属性和超链接的 <code>href</code> 属性相同，都是提供“<strong>请求路径</strong>”的</p>
+<p><code>method</code> 属性用来指定表单提交的方式/方法，常见的包括两种:</p>
+<ul>
+<li>get方式提交 (默认)</li>
+<li>post方式提交</li>
+</ul>
+<h3 id="82-提交按钮">8.2 提交按钮</h3>
+<pre><code class="language-html">&lt;input type=&quot;submit&quot;&gt;
+</code></pre>
+<p>是个按钮，发送请求并提交数据</p>
+<ul>
+<li><code>value</code> 设置按钮文本</li>
+</ul>
+<h3 id="83-input-标签">8.3 <code>input</code> 标签</h3>
+<ol>
+<li><code>type</code> 属性可选项:
+<ul>
+<li><code>text</code> 文本框</li>
+<li><code>password</code> 密码框</li>
+<li><code>radio</code> 单选框</li>
+<li><code>checkbox</code> 多选框</li>
+</ul>
+</li>
+<li><code>name</code> 属性
+<ul>
+<li>没有 <code>name</code> 属性，数据不会提交</li>
+<li>会在提交时添加 <code>name</code> 和 <code>返回值</code> 到提交地址</li>
+</ul>
+</li>
+<li><code>value</code> 属性
+<ul>
+<li><code>text</code> 和 <code>password</code> 等由用户输入<code>value</code>的不用写</li>
+<li>其他需要指定各个选项的<code>value</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="84-其他标签">8.4 其他标签</h3>
+<p>单选框</p>
+<pre><code class="language-html">&lt;input type=&quot;radio&quot; name=&quot;same&quot; value=&quot;0&quot; checked&gt;
+&lt;input type=&quot;radio&quot; name=&quot;same&quot; value=&quot;1&quot;&gt;
+&lt;!-- 如果选项是一起的 `name` 属性要相同 --&gt;
+&lt;!-- `checked` 是默认选项 --&gt;
+</code></pre>
+<p>下拉列表</p>
+<pre><code class="language-html">&lt;select name=&quot;&quot; id=&quot;&quot;&gt;
+    &lt;option value=&quot;0&quot;&gt;&lt;/option&gt;
+    &lt;option value=&quot;1&quot;&gt;&lt;/option&gt;
+&lt;/select&gt;
+&lt;!-- `selected` 是默认选项 --&gt;
+</code></pre>
+<p>多选框</p>
+<pre><code class="language-html">&lt;input type=&quot;checkbox&quot; name=&quot;same&quot; value=&quot;0&quot;&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;same&quot; value=&quot;1&quot;&gt;
+&lt;!-- 如果选项是一起的 `name` 属性要相同 --&gt;
+&lt;!-- `checked` 是默认选项 --&gt;
+</code></pre>
+<p>文本域 （多行文本框）</p>
+<pre><code class="language-html">&lt;textarea name=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+</code></pre>
+<p>重置按钮<br>
+使表单回到初始状态</p>
+<pre><code class="language-html">&lt;input type=&quot;reset&quot; value=&quot;reset&quot;&gt;
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/hadoop-centos-7-an-zhuang-hadoopling/" class="post-title gt-a-link">
+                    Hadoop——Centos 7 安装 Hadoop（零）
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

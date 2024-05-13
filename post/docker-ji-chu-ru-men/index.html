@@ -1,0 +1,532 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Docker 基础入门 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Docker 基础入门
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-10-12 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/CXQouUBtF/" class="post-tags">
+                            # docker
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="1docker-安装">1.Docker 安装</h2>
+<p>卸载原docker(不自带不用作)</p>
+<pre><code class="language-shell">sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine       
+</code></pre>
+<p>安装依赖和设置仓库地址</p>
+<pre><code class="language-shell"># 安装依赖
+yum install -y yum-utils
+# 添加仓库
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 觉得慢，可以设置国内镜像仓库
+yum-config-manager --add-repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+yum clean all &amp; yum makecache
+</code></pre>
+<p>rm -f /var/run/yum.pid</p>
+<p>安装</p>
+<pre><code class="language-shell">yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<p>启动与测试</p>
+<pre><code class="language-shell"># 启动
+systemctl start docker
+# 查看版本
+docker version
+# 测试运行
+docker run hello-world
+# 开机自启
+systemctl enable docker
+</code></pre>
+<p>卸载docker</p>
+<pre><code class="language-shell"># 删包
+yum remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+# 删文件
+rm -rf /var/lib/docker
+rm -rf /var/lib/containerd
+</code></pre>
+<h2 id="2-docker-常用命令">2. Docker 常用命令</h2>
+<h3 id="21-帮助命令">2.1 帮助命令</h3>
+<pre><code class="language-shell"># 帮助命令
+docker 命令 --help
+# 查看版本
+docker version
+# docker的系统信息
+docker info
+</code></pre>
+<p>在线帮助文档：https://docs.docker.com/reference/</p>
+<h3 id="22-镜像命令">2.2 镜像命令</h3>
+<pre><code class="language-shell"># 查看镜像列表
+docker images
+</code></pre>
+<blockquote>
+<p>REPOSITORY    TAG       IMAGE ID       CREATED        SIZE</p>
+<p>hello-world   latest    9c7a54a9a43c   5 months ago   13.3kB</p>
+</blockquote>
+<ul>
+<li>-a, --all             # 显示所有（包括隐藏）</li>
+<li>-q, --quiet           # 只显示ID</li>
+</ul>
+<pre><code class="language-shell"># 在 dockerhub 搜索镜像
+docker search 关键词 
+</code></pre>
+<ul>
+<li>-f, --filter filter   过滤例如<code>--filter=START=3000</code> 星标大于3000</li>
+</ul>
+<pre><code class="language-shell"># 下载镜像（不写版本默认lastest最新）
+docker pull 关键词:版本
+# 指定版本下载
+docker pull mysql:5.7
+</code></pre>
+<pre><code class="language-shell"># 删除镜像
+docker rmi 镜像ID 镜像ID...
+# 删除全部镜像
+docker rmi $(docker images -aq)
+</code></pre>
+<h3 id="23-容器命令">2.3 容器命令</h3>
+<pre><code class="language-shell">docker pull centos
+# 运行命令
+docker run 镜像
+</code></pre>
+<ul>
+<li>
+<p>--name 	容器名字</p>
+</li>
+<li>
+<p>-d 后台运行</p>
+</li>
+<li>
+<p>-it 交互方式运行</p>
+</li>
+<li>
+<p>-P 指定端口</p>
+<ul>
+<li>
+<p>-p 主机端口:容器端口</p>
+</li>
+<li>
+<p>-p ip:主机端口:容器端口</p>
+</li>
+<li>
+<p>-p 容器端口</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-p 随机端口</p>
+</li>
+</ul>
+<pre><code class="language-shell"># 启动、测试
+[root@node1 ~]# docker run -it centos bash
+[root@544d6c37f4af /]#
+# 退出容器
+[root@544d6c37f4af /]# exit
+exit
+[root@node1 ~]#
+</code></pre>
+<pre><code class="language-shell"># 查看正在运行的容器
+docker ps
+</code></pre>
+<ul>
+<li>-a 全部容器（包括已经退出的）</li>
+<li>-n=数字 最近运行的几个容器</li>
+<li>-q 只显示ID</li>
+</ul>
+<pre><code class="language-shell"># 容器停止并退出
+exit
+# 退出容器不停止
+Ctrl + P +Q
+# 删除容器,不能删除正在运行的容器
+docker rm 容器ID
+# 删除全部（强制）
+docker rm -f $(docker ps -aq)
+# 启动、重启、停止、强制停止容器
+docker start 容器ID
+docker restart 容器ID
+docker stop 容器ID
+docker kill 容器ID
+</code></pre>
+<pre><code class="language-shell"># 显示log
+docker log -tf --tail 数字
+</code></pre>
+<ul>
+<li>
+<p>-f 循环输出</p>
+</li>
+<li>
+<p>-t 显示时间</p>
+</li>
+<li>
+<p>--tail + 数字 显示的条数</p>
+</li>
+</ul>
+<pre><code class="language-shell"># 查看容器中的进程信息
+docker top 容器ID
+# 查看容器的元数据
+docker inspect 容器ID
+</code></pre>
+<pre><code class="language-shell"># 进入当前正在运行的容器
+# 开启一个新的终端
+docker exec -it 容器ID bash
+
+# 进入容器
+docker attach 容器ID
+</code></pre>
+<pre><code class="language-shell"># docker 容器和主机复制文件
+docker cp 容器ID
+</code></pre>
+<pre><code class="language-shell"># 打包镜像
+docker commit -a 作者 -m 描述 容器ID 镜像名称
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-a :</strong></td>
+<td>提交的镜像作者</td>
+</tr>
+<tr>
+<td><strong>-c :</strong></td>
+<td>使用Dockerfile指令来创建镜像</td>
+</tr>
+<tr>
+<td>**-m **</td>
+<td>提交时的说明文字</td>
+</tr>
+<tr>
+<td>**-p **</td>
+<td>在commit时，将容器暂停。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-webui-可视化">3. WebUI 可视化</h2>
+<pre><code class="language-shell"># 拉取
+docker pull portainer/portainer
+# 运行
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+</code></pre>
+<p>打开 http://localhost:9000/，完成账户创建，</p>
+<p>选择<code>Get Started - Proceed using the local environment which Portainer is running in</code>即可完成配置</p>
+<blockquote>
+<p>都可视化了，内容也没什么好讲解了</p>
+</blockquote>
+<h2 id="4-docker-镜像">4. Docker 镜像</h2>
+<h3 id="41-容器数据卷">4.1 容器数据卷</h3>
+<p><strong>运行时创建挂载</strong></p>
+<pre><code class="language-shell">docker run -it -v 主机目录:容器目录
+
+# 把主机目录挂载到容器中
+mkdir ceshi
+docker run -it -v $PWD/ceshi:/home centos
+</code></pre>
+<p>容器即使重启依旧会保留挂载</p>
+<blockquote>
+<p>测试安装运行<code>Mysql</code></p>
+<p><code>docker run -d -p 3310:3306 -v $PWD/mysql/conf:/etc/mysql/conf.d -v $PWD/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></p>
+</blockquote>
+<p><strong>使用方法:  docker volume 命令</strong></p>
+<ul>
+<li>
+<p>create      创建一个volume</p>
+</li>
+<li>
+<p>inspect     展示volume的详细信息</p>
+</li>
+<li>
+<p>ls          列出所有的volume</p>
+<pre><code class="language-shell">docker volume ls
+
+# DRIVER    VOLUME NAME
+# local     07ecb5d394551af2c70149026ef07b7da4b05de9fedc64cc1e8c0ae4f1f8699d
+# local     e86b118a8373a31957c9cd0ba8a40fca980a4e813e223f82f8036a7e3afb9819
+# local     portainer_data
+</code></pre>
+</li>
+<li>
+<p>prune       移除未使用的volume</p>
+</li>
+<li>
+<p>rm          移出一个或多个volume</p>
+</li>
+</ul>
+<p><strong>具名挂载、匿名挂载和指定路径挂载</strong></p>
+<p>没有指定目录的情况下默认目录是<code>/var/lib/docker/volumes</code></p>
+<ul>
+<li>
+<p>匿名挂载：</p>
+<p><code>docker run -v 容器内路径 镜像名称</code></p>
+</li>
+<li>
+<p>具名挂载：<br>
+<code>docker run -v 卷名(volume name):容器内路径 镜像名称</code></p>
+</li>
+<li>
+<p>指定路径挂载</p>
+<p><code>docker run -v /宿主机路径:容器内路径 镜像名称</code></p>
+</li>
+</ul>
+<h3 id="42-dockerfile">4.2 Dockerfile</h3>
+<p>通过编写Dockerfile文件，可以轻松地构建出自己所需的Docker镜像。</p>
+<blockquote>
+<p>Dockerfile是一种文本文件，用于定义Docker镜像的构建过程。它包含了一系列的指令和参数，用于指导Docker引擎在构建镜像时执行一系列的操作，例如安装软件包、设置环境变量、拷贝文件等。</p>
+<p>Dockerfile通常包含以下几个部分：</p>
+<ol>
+<li>基础镜像：指定要使用的基础镜像，例如Ubuntu、CentOS等。</li>
+<li>维护者信息：指定Docker镜像的维护者信息。</li>
+<li>环境变量：设置Docker容器的环境变量。</li>
+<li>安装软件包：使用apt-get、yum等包管理器安装需要的软件包。</li>
+<li>拷贝文件：将本地文件或目录拷贝到Docker镜像中。</li>
+<li>运行命令：在Docker镜像中运行命令，例如启动服务等。</li>
+<li>暴露端口：指定Docker容器需要暴露的端口号。</li>
+</ol>
+</blockquote>
+<h3 id="421-dockerfile-构建过程">4.2.1 Dockerfile 构建过程</h3>
+<p>基础知识:</p>
+<ol>
+<li>每个保留关键字(指令)都是必须是大写字母</li>
+<li>执行从上到下顺序执行</li>
+<li><code>#</code>表示注释</li>
+<li>每一个指令都会创建提交一个新的镜像层，并提交!</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>FROM</strong></td>
+<td style="text-align:left">这个镜像的妈妈是谁? (指定基础镜像)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>MAINTAINER</strong></td>
+<td style="text-align:left">告诉别人，谁负责养它? (指定维护者信息)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RUN</strong></td>
+<td style="text-align:left">你想让它干啥 (在命令前面加上RUN即可)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ADD</strong></td>
+<td style="text-align:left">给它点创业资金  (COPY文件，会自动解压)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>WORKDIR</strong></td>
+<td style="text-align:left">我是cd,今天刚化了妆 (设置当前工作目录)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>VOLUME</strong></td>
+<td style="text-align:left">给它一个存放行李的地方 (设置卷，挂载主机目录)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>EXPOSE</strong></td>
+<td style="text-align:left">它要打开的门是啥 (指定对外的端口)</td>
+</tr>
+<tr>
+<td style="text-align:left">CMD</td>
+<td style="text-align:left">启动时要运行的命令,只有最后一个生效</td>
+</tr>
+<tr>
+<td style="text-align:left">ENTERPOINT</td>
+<td style="text-align:left">启动时要运行的命令,可以追加</td>
+</tr>
+<tr>
+<td style="text-align:left">OUYTBUILD</td>
+<td style="text-align:left">当构建一个被继承 DockerFile 这个时候就会运行 ONBUILD 的指令。触发指令</td>
+</tr>
+<tr>
+<td style="text-align:left">COPY</td>
+<td style="text-align:left">类似ADD , 把文件拷贝到镜像</td>
+</tr>
+<tr>
+<td style="text-align:left">ENV</td>
+<td style="text-align:left">构建时的环境变量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>构建一个centos7</strong></p>
+<pre><code class="language-dockerfile">FROM centos:7
+MAINTAINER 123&lt;123@qq.com&gt;
+
+ENV MYPATH /usr/local
+WORKDIR $MYPATH
+
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+
+CMD echo $MYPATH
+CMD echo &quot;---END---&quot;
+CMD bash
+</code></pre>
+<p>构建文件</p>
+<pre><code class="language-shell">docker build -f 文件 -t 镜像名称:TAG版本 .
+# 最后有一个点！
+# 如果已经有Dockerfile，就不需要-f指定文件了
+</code></pre>
+<h3 id="43-docker-网络">4.3 Docker 网络</h3>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/flink-huan-jing-pei-zhi/" class="post-title gt-a-link">
+                    Flink 环境配置
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

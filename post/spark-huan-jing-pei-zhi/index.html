@@ -1,0 +1,260 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Spark 环境配置 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Spark 环境配置
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-10-12 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/ryPxRqko4/" class="post-tags">
+                            # spark
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5ox1dqgfn/" class="post-tags">
+                            # hadoop
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h2 id="1下载安装">1.下载安装</h2>
+<p>来到下载页面<br>
+<a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a></p>
+<p>找一个<strong>合适自己</strong>Hadoop版本的版本<br>
+spark-3.2.4-bin-hadoop3.2.tgz</p>
+<blockquote>
+<p>也可以选择不带hadoop的版本，但是后期步骤不一样<br>
+解压后先完成 <code>2.2 设置配置</code><br>
+<code>spark-env.sh</code> 里面多加一行 ( hadoop需存在于环境变量 )<br>
+<code>export SPARK_DIST_CLASSPATH=$(hadoop classpath)</code></p>
+</blockquote>
+<p>下载一下</p>
+<pre><code class="language-shell">cd usr/  
+wget https://archive.apache.org/dist/spark/spark-3.2.4/spark-3.2.4-bin-hadoop3.2.tgz --no-check-certificate
+</code></pre>
+<p>解压一下</p>
+<pre><code class="language-shell">tar -zxvf spark-3.2.4-bin-hadoop3.2.tgz
+</code></pre>
+<p>改个名字</p>
+<pre><code class="language-shell">mv spark-3.2.4-bin-hadoop3.2 spark
+</code></pre>
+<p>删掉安装包</p>
+<pre><code class="language-shell">rm -f spark-3.2.4-bin-hadoop3.2.tgz
+</code></pre>
+<h2 id="2配置">2.配置</h2>
+<h3 id="21-环境变量">2.1 环境变量</h3>
+<pre><code class="language-shell">vim /etc/profile
+</code></pre>
+<p>末尾添加</p>
+<pre><code class="language-shell">#SPARK_HOME
+export SPARK_HOME=/usr/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME
+</code></pre>
+<pre><code class="language-shell">source /etc/profile
+</code></pre>
+<p>测试，输入</p>
+<pre><code class="language-shell">spark-shell
+</code></pre>
+<p>一番等待如果出现</p>
+<pre><code>      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   
+      /_/
+</code></pre>
+<p>就是成功了</p>
+<h3 id="22-其他配置">2.2 其他配置</h3>
+<p><strong>这一步，可以跳过！</strong></p>
+<blockquote>
+<p>里面<strong>文件目录</strong>根据<strong>实际</strong>写，但我实测这个文件不创建也能运行web网页</p>
+</blockquote>
+<pre><code class="language-shell">cd spark/conf/
+</code></pre>
+<pre><code class="language-shell">mv spark-env.sh.template spark-env.sh
+</code></pre>
+<pre><code class="language-shell">vim spark-env.sh
+</code></pre>
+<pre><code class="language-shell">export SCALA_HOME=/usr/scala
+export JAVA_HOME=/usr/java/jdk1.8.0_202-amd64
+export HADOOP_HOME=/usr/hadoop-3.2.4
+export SPARK_HOME=/home/hadoop/app/spark-1.4.0
+export SPARK_PID_DIR=$SPARK_HOME/tmp
+
+SPARK_MASTER_IP=node1
+SPARK_LOCAL_DIRS=/usr/spar/
+SPARK_DRIVER_MEMORY=1G
+SPARK_MASTER_PORT=4050
+SPARK_WORKER_CORES=30
+SPARK_WORKER_MEMORY=60g
+SPARK_WORKER_INSTANCES=6
+SPARK_DRIVER_MEMORY=12g
+</code></pre>
+<p>添加子节点</p>
+<pre><code class="language-shell">mv workers.template workers
+vim workers
+</code></pre>
+<pre><code>node2
+node3
+</code></pre>
+<h2 id="3分发">3.分发</h2>
+<p>分发到子节点</p>
+<pre><code class="language-shell">cd /usr/
+scp -r spark/ node2:$PWD
+scp -r spark/ node3:$PWD
+</code></pre>
+<h2 id="4检验">4.检验</h2>
+<p>开启</p>
+<pre><code class="language-shell">$SPARK_HOME/sbin/start-all.sh
+</code></pre>
+<p>webUI要能启动<br>
+<a href="http://node1:8080">http://node1:8080</a></p>
+<p>关闭</p>
+<pre><code class="language-shell">$SPARK_HOME/sbin/stop-all.sh
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/tomcat-de-an-zhuang/" class="post-title gt-a-link">
+                    Tomcat 的 安装
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

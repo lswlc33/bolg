@@ -1,0 +1,350 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Hadoop——Centos 7 安装 Hadoop（一） | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Hadoop——Centos 7 安装 Hadoop（一）
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-06-13 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5ox1dqgfn/" class="post-tags">
+                            # hadoop
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p><s>安装centos的过程不是难点不做介绍</s><br>
+介绍了，在<code>Centos 7 安装 Hadoop（零）</code></p>
+<!-- more -->
+<h1 id="1配置网络">1.配置网络</h1>
+<p>为你的虚拟机配置静态IP</p>
+<h2 id="10获取你虚拟机的当前ip">1.0获取你虚拟机的当前IP</h2>
+<p>按照路径打开：<br>
+<code>VMware-编辑-虚拟网络编辑器-选择VMnet8-NET设置</code><br>
+记录：<br>
+<code>子网IP</code><br>
+<code>子网掩码</code><br>
+<code>网关IP</code><br>
+IP格式应该为<code>192.168.aaa.0</code><br>
+<code>aaa</code>每人都可能不一样，我的是<code>140</code><br>
+所以下文用<code>192.168.140.0</code>作为示例</p>
+<h2 id="11修改虚拟机主机名">1.1修改虚拟机主机名</h2>
+<pre><code class="language-shell">vim /etc/hostname
+# 这个名字即下文的node1，node2等
+</code></pre>
+<h2 id="12修改hosts">1.2修改hosts</h2>
+<p>设置主机名和 ip 映射<br>
+在文件后面<strong>添加</strong> ，要几个虚拟机写几行</p>
+<blockquote>
+<p>这里的IP就是<code>#1.0</code>中的IP，但是结尾<code>0</code>的IP已经被占用<br>
+所以这里使用<code>140</code>开始的数字作为结尾即<code>192.168.140.140</code><br>
+也可以使用其他好记的数字<br>
+后文输入命令的时候注意改动</p>
+</blockquote>
+<pre><code class="language-shell">vi /etc/hosts
+
+# 编辑文件
+# 准备建几个虚拟机就写几个
+192.168.140.140 node1
+192.168.140.141 node2
+</code></pre>
+<h2 id="13改静态ip">1.3改静态ip</h2>
+<pre><code class="language-shell">vim /etc/sysconfig/network-scripts/ifcfg-ens33
+
+# 把动态改为静态
+BOOTPROTO=&quot;static&quot;
+# 手动添加网络配置
+IPADDR=&quot;192.168.140.140&quot; # 前面说的还记得吧？
+GATEWAY=&quot;192.168.140.2&quot; # 网关基本是`2`结尾
+NETMASK=&quot;255.255.255.0&quot;
+DNS1=&quot;114.114.114.114&quot;
+</code></pre>
+<h2 id="14重启网络">1.4重启网络</h2>
+<pre><code class="language-shell">service network restart
+</code></pre>
+<h2 id="15ssh连接">1.5ssh连接</h2>
+<p>使用主机的shell连接到linux的终端<br>
+默认root用户登录防止频繁的su提权操作</p>
+<pre><code class="language-shell">ssh root@192.168.140.140
+# 第一次输入yes并回车再输入密码
+</code></pre>
+<p>如果出现<code> WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code><br>
+输入下面代码重新连接即可</p>
+<pre><code class="language-shell">ssh-keygen -R IP地址
+</code></pre>
+<h2 id="16关防火墙">1.6关防火墙</h2>
+<p>关就是了，主机的也关下</p>
+<pre><code class="language-shell">firewall-cmd --state
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+</code></pre>
+<h2 id="17时间同步">1.7时间同步</h2>
+<pre><code class="language-shell">ntpdate ntp1.aliyun.com
+</code></pre>
+<h1 id="2软件安装">2.软件安装</h1>
+<p>安装java和hadoop，同时配置ftp服务</p>
+<h2 id="21卸载java">2.1卸载java</h2>
+<p>因为openjava不是完全体java</p>
+<pre><code class="language-shell"># 查找
+rpm -qa|grep java
+# 卸载
+# 把上面查找的包全部删除
+# 语法 rpm -e --nodeps 包名（后面的版本号可以不写）
+rpm -e --nodeps javapackages-tools
+rpm -e --nodeps java-1.8.0-openjdk
+rpm -e --nodeps java-1.7.0-openjdk
+rpm -e --nodeps java-1.7.0-openjdk-headless
+rpm -e --nodeps java-1.8.0-openjdk-headless
+rpm -e --nodeps python-javapackages
+rpm -e --nodeps tzdata-java
+</code></pre>
+<p>安装java在接下来的章节（<a href="#%E5%AE%89%E8%A3%85java">点这里</a>）</p>
+<h2 id="22安装ftp服务">2.2安装FTP服务</h2>
+<pre><code class="language-shell"># 安装
+yum install -y vsftpd
+cd /etc/vsftpd/
+vi vsftpd.conf 
+# 修改以下配置
+anonymous_enable=NO
+ascii_upload_enable=YES
+ascii_download_enable=YES
+chroot_local_user=YES
+chroot_list_enable=NO
+allow_writeable_chroot=YES
+</code></pre>
+<h2 id="23打开ftp服务">2.3打开FTP服务</h2>
+<pre><code class="language-shell">systemctl enable vsftpd.service
+systemctl start vsftpd.service
+</code></pre>
+<h2 id="24关闭selinux">2.4关闭SElinux</h2>
+<p>如果ftp连接出现<code>500 OOPS: chroot</code>则需要关闭</p>
+<pre><code class="language-shell">vim /etc/sysconfig/selinux
+</code></pre>
+<p>将<code>SELINUX=enforcing</code> 改为<code>SELINUX=disabled</code><br>
+<strong>完成后需要重启机器</strong></p>
+<h2 id="25连接ftp">2.5连接FTP</h2>
+<p>使用任意客户端<br>
+打开<code>ftp://192.168.140.140</code><br>
+账号为非root用户</p>
+<h2 id="26ftp-root登录">2.6FTP root登录</h2>
+<p>（这一步不是必要的）<br>
+linux默认禁止FTP以root用户登录<br>
+如果要，按照以下操作</p>
+<pre><code class="language-shell">vi /etc/vsftpd/ftpusers
+#注释掉root一行
+</code></pre>
+<h2 id="27安装java">2.7安装java</h2>
+<p>先下载java<br>
+下载地址：<br>
+<code>https://www.oracle.com/java/technologies/downloads/</code>要登陆，很烦<br>
+<code>https://repo.huaweicloud.com/java/jdk/</code>华为镜像，不错</p>
+<p>这里我们选择下载<br>
+<code>https://repo.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-x64.rpm</code><br>
+使用ftp传到虚拟机里(如果centos有图像界面直接火狐下载)</p>
+<p>我是使用非root登录，传到了<code>/home/用户名/Desktop</code>里</p>
+<p>回到终端</p>
+<pre><code class="language-shell">cd /home/用户名/Desktop
+# 火狐下载的直接打开下载目录
+
+# 安装
+rpm -ivh jdk-8u202-linux-x64.rpm
+
+</code></pre>
+<h2 id="28配置java环境变量">2.8配置java环境变量</h2>
+<pre><code class="language-shell"># 打开环境变量配置文件
+vi /etc/profile
+</code></pre>
+<p>文件最后添加</p>
+<pre><code class="language-shell">#JAVA_HOME
+export JAVA_HOME=/usr/java/jdk1.8.0_202-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+</code></pre>
+<pre><code class="language-shell"># 刷新环境变量使其生效
+source /etc/profile
+
+# 测试是否安装成功
+java
+javac
+# 如果有大段使用介绍输出就行
+</code></pre>
+<p>至此java配置成功</p>
+<h2 id="29安装hadoop">2.9安装Hadoop</h2>
+<blockquote>
+<p>上面的java有打包好的rpm格式的安装包可以直接安装，但是Hadoop没有，需要手动安装</p>
+</blockquote>
+<p>官方下载地址：<br>
+<code>https://hadoop.apache.org/releases.html</code></p>
+<p>网页里找到<code>Binary download</code>下载包</p>
+<p>我使用这个版本：<br>
+<code>https://dlcdn.apache.org/hadoop/common/hadoop-3.2.4/hadoop-3.2.4.tar.gz</code></p>
+<p>依旧是保存到<code>/home/用户名/Desktop</code></p>
+<pre><code class="language-shell"># 进入目录
+cd /home/用户名/Desktop
+# 解压到/usr/
+tar -zxvf hadoop-3.2.4.tar.gz -C /usr/
+</code></pre>
+<h2 id="210配置hadoop环境变量">2.10配置Hadoop环境变量</h2>
+<pre><code class="language-shell"># 打开环境变量配置文件
+vi /etc/profile
+</code></pre>
+<p>文件最后添加</p>
+<pre><code class="language-shell">##HADOOP_HOME
+export HADOOP_HOME=/usr/hadoop-3.2.4
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+</code></pre>
+<pre><code class="language-shell"># 刷新环境变量使其生效
+source /etc/profile
+
+# 测试是否安装成功
+hadoop version
+# 如果有非报错的输出就行
+</code></pre>
+<p>到此Hadoop安装完成</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/android-kai-fa-bi-ji-chu-cun-wen-jian-dao-data/" class="post-title gt-a-link">
+                    Android开发笔记——储存文件到Data
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>大数据疑难解决 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    大数据疑难解决
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-04-17 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/oTcPcSSOW/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/5ox1dqgfn/" class="post-tags">
+                            # hadoop
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>记录一些实战遇到的问题和解决办法</p>
+<!-- more -->
+<h2 id="nonode-for-hbasehbaseid">NoNode for /hbase/hbaseid</h2>
+<p>运行<code>hbase shell</code>出现类似报错，<br>
+解决办法<br>
+修改<code>hbase-env.sh</code>，为该文件增加<br>
+<code>export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP=&quot;true&quot;</code></p>
+<h2 id="运行出现-entry-in-command-string-null-chmod-0700-异常解决方案">运行出现 entry in command string: null chmod 0700 异常解决方案</h2>
+<p>去 <a href="https://github.com/cdarlint/winutils">https://github.com/cdarlint/winutils</a><br>
+随便找个近似版本,下载里面的 <code>hadoop.dll</code> 和 <code>winutils.exe</code><br>
+添加 <code>hadoop.dll</code> 和 <code>winutils.exe</code> 到 windows 的环境变量比如放到 hadoop/bin 里</p>
+<h2 id="no-hbase-master-found">no hbase master found</h2>
+<p>hbase 启动失败，idea 里面操作无报错无返回<br>
+查看日志</p>
+<pre><code>2024-04-24T09:40:45,557 ERROR [main] regionserver.HRegionServer: Failed construction RegionServer
+java.io.IOException: Incomplete HDFS URI, no host: hdfs://master:8020:hbase
+
+2024-04-24T09:40:45,562 ERROR [main] master.HMasterCommandLine: Master exiting
+java.lang.RuntimeException: Failed construction of Master: class org.apache.hadoop.hbase.master.HMaster.
+    ...
+Caused by: java.io.IOException: Incomplete HDFS URI, no host: hdfs://master:8020/hbase
+    ...
+</code></pre>
+<p>但 hdfs://master/8020 可达</p>
+<p>谁知 hbase 竟然需要 hadoop 的版本支持<br>
+可见网址<br>
+https://hbase.apache.org/book.html#hadoop</p>
+<p>我的 hbase 版本是 hadoop 所不支持的，自然不能运行</p>
+<pre><code>        &lt;hadoop.version&gt;2.7.5&lt;/hadoop.version&gt;
+        &lt;hbase.version&gt;2.5.8&lt;/hbase.version&gt;
+</code></pre>
+<p>官网可不提供旧版的下载，不过还好提供了 <code>archive</code><br>
+https://archive.apache.org/dist/hbase/</p>
+<p>Hadoop-2.7.1+ 对应得是 HBase-1.4.x，直接选择最新版<br>
+https://archive.apache.org/dist/hbase/1.4.14/hbase-1.4.14-bin.tar.gz</p>
+<h2 id="master-is-initializing">Master is initializing</h2>
+<pre><code>HTTP ERROR 500
+Problem accessing /master-status. Reason:
+
+    Master is initializing
+</code></pre>
+<p>/opt/zookeeper/bin/zkCli.sh</p>
+<p>ls /</p>
+<p>http://master:50070/</p>
+<p>2024-04-24 10:57:11,397 INFO  [master/master/192.168.29.20:16000-SendThread(master:2181)] zookeeper.ClientCnxn: Opening socket connection to server master/192.168.29.20:2181. Will not attempt to authenticate using SASL (unknown error)</p>
+<p>2024-04-24 10:57:25,981 WARN  [933646237@qtp-1397530667-0] mortbay.log: /master-status: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</p>
+<p>2024-04-24 10:54:19,310 [myid:] - WARN  [QuorumConnectionThread-[myid=2]-2:o.a.z.s.q.QuorumCnxManager@401] - Cannot open channel to 3 at election address slave2/192.168.29.22:3888<br>
+java.net.ConnectException: 拒绝连接 (Connection refused)<br>
+at java.net.PlainSocketImpl.socketConnect(Native Method)<br>
+at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)<br>
+at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)<br>
+at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)<br>
+at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:394)<br>
+at java.net.Socket.connect(Socket.java:606)<br>
+at org.apache.zookeeper.server.quorum.QuorumCnxManager.initiateConnection(QuorumCnxManager.java:384)<br>
+at org.apache.zookeeper.server.quorum.QuorumCnxManager<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mi>u</mi><mi>o</mi><mi>r</mi><mi>u</mi><mi>m</mi><mi>C</mi><mi>o</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>R</mi><mi>e</mi><mi>q</mi><mi>T</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi mathvariant="normal">.</mi><mi>r</mi><mi>u</mi><mi>n</mi><mo>(</mo><mi>Q</mi><mi>u</mi><mi>o</mi><mi>r</mi><mi>u</mi><mi>m</mi><mi>C</mi><mi>n</mi><mi>x</mi><mi>M</mi><mi>a</mi><mi>n</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>j</mi><mi>a</mi><mi>v</mi><mi>a</mi><mo>:</mo><mn>458</mn><mo>)</mo><mi>a</mi><mi>t</mi><mi>j</mi><mi>a</mi><mi>v</mi><mi>a</mi><mi mathvariant="normal">.</mi><mi>u</mi><mi>t</mi><mi>i</mi><mi>l</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">.</mi><mi>T</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>P</mi><mi>o</mi><mi>o</mi><mi>l</mi><mi>E</mi><mi>x</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>r</mi><mi>u</mi><mi>n</mi><mi>W</mi><mi>o</mi><mi>r</mi><mi>k</mi><mi>e</mi><mi>r</mi><mo>(</mo><mi>T</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>P</mi><mi>o</mi><mi>o</mi><mi>l</mi><mi>E</mi><mi>x</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>j</mi><mi>a</mi><mi>v</mi><mi>a</mi><mo>:</mo><mn>1149</mn><mo>)</mo><mi>a</mi><mi>t</mi><mi>j</mi><mi>a</mi><mi>v</mi><mi>a</mi><mi mathvariant="normal">.</mi><mi>u</mi><mi>t</mi><mi>i</mi><mi>l</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">.</mi><mi>T</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>a</mi><mi>d</mi><mi>P</mi><mi>o</mi><mi>o</mi><mi>l</mi><mi>E</mi><mi>x</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>t</mi><mi>o</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">QuorumConnectionReqThread.run(QuorumCnxManager.java:458)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">Q</span><span class="mord mathdefault">u</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">Q</span><span class="mord mathdefault">u</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">n</span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mord">5</span><span class="mord">8</span><span class="mclose">)</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord">.</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord">.</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">x</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">x</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">4</span><span class="mord">9</span><span class="mclose">)</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord">.</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord">.</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">x</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>Worker.run(ThreadPoolExecutor.java:624)<br>
+at java.lang.Thread.run(Thread.java:750)</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/hadoop-2-yu-3-zai-pei-zhi-huan-jing-shi-de-qu-bie/" class="post-title gt-a-link">
+                    Hadoop 2 与 3 在配置环境时的区别
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

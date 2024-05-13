@@ -1,0 +1,331 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Javascript 概述 | 雪中明月 の BLOG</title>
+
+<link rel="shortcut icon" href="https://blog.xn--fiqz59cpva341l.top/favicon.ico?v=1715590005923">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.xn--fiqz59cpva341l.top/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            雪中明月 の BLOG
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1715590005923" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Javascript 概述
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-20 ·
+                    </time>
+                    
+                        <a href="https://blog.xn--fiqz59cpva341l.top/tag/T0OAoa6MQ/" class="post-tags">
+                            # javascript
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>很简陋</p>
+<!-- more -->
+<h2 id="1-什么是javascript-和java有什么关系">1. 什么是Javascript, 和Java有什么关系</h2>
+<ol>
+<li><code>Javascript</code> 是一个脚本语言</li>
+<li>蹭热度的，没关系</li>
+</ol>
+<h2 id="2-js-是干啥的">2. JS 是干啥的</h2>
+<p>HTML是主体<br>
+CSS是修饰<br>
+JS是操作HTML和CSS达到网页动态效果</p>
+<h2 id="3-js-嵌入-html-的方式">3. JS 嵌入 HTML 的方式</h2>
+<p><code>Javascript</code>是一个事件驱动型的编程语言，一般靠事件触发</p>
+<h3 id="31-在事件句柄中提供js代码">3.1 在事件句柄中提供JS代码</h3>
+<p>事件句柄都是以标签形式存在<br>
+事件不发生，代码不执行</p>
+<pre><code class="language-html">&lt;input type=&quot;reset&quot; onclick=&quot;window.alert('重置成功！')&quot;&gt;
+</code></pre>
+<p><code>window.</code>可以省略，<code>;</code> 不一定要写</p>
+<h3 id="32-使用脚本块">3.2 使用脚本块</h3>
+<p>JS的注释和Java相同<br>
+会在网页打开时自上而下运行<br>
+脚本块可以多个，没有位置限制</p>
+<pre><code class="language-html">&lt;script&gt;
+    // 这是注释
+    alert('广告:XXXXX')
+&lt;/script&gt;
+</code></pre>
+<h3 id="33-加载来自外部的js文件">3.3 加载来自外部的js文件</h3>
+<pre><code class="language-html">&lt;script src=&quot;js/s1.js&quot;&gt;
+</code></pre>
+<h2 id="4-js-的变量">4. JS 的变量</h2>
+<blockquote>
+<p>省流，Java杂合Python<br>
+变量是 <code>var</code><br>
+常量是 <code>const</code></p>
+</blockquote>
+<p>js是一种弱类型语言<br>
+和python一样变量类型不用定义<br>
+可以随时更改数据类型</p>
+<pre><code class="language-js">var age = 20
+age = &quot;变量变成string了&quot;
+// 变量没有赋值时默认为undefined
+``` 56789
+
+
+```js
+// 类似println，输出到控制台
+console.log(age)
+</code></pre>
+<h2 id="5-js-的函数">5. JS 的函数</h2>
+<blockquote>
+<p>省流，和Python一样</p>
+</blockquote>
+<p>定义：</p>
+<pre><code class="language-js">function myadd (a, b) {
+    alert(a + b)
+}
+</code></pre>
+<p>调用：</p>
+<pre><code class="language-js">add(1, 2)
+</code></pre>
+<h2 id="6-js-的事件">6. JS 的事件</h2>
+<h3 id="61-常用事件">6.1 常用事件</h3>
+<ol>
+<li>
+<p>点击事件：</p>
+<p><code>onclick</code> 单击事件<br>
+<code>ondblclick</code> 双击事件</p>
+</li>
+<li>
+<p>焦点事件</p>
+<p><code>onblur</code> 失去焦点<br>
+<code>onfocus</code> 元素获得焦点</p>
+</li>
+<li>
+<p>加载事件：</p>
+<p><code>onload</code> 一张页面或一幅图像完成加载</p>
+</li>
+<li>
+<p>鼠标事件：</p>
+<p><code>onmousedown</code> 鼠标按钮被按下<br>
+<code>onmouseup</code> 鼠标按键被松开<br>
+<code>onmousemove</code> 鼠标被移动<br>
+<code>onmouseover</code> 鼠标移到某元素之上<br>
+<code>onmouseout</code> 鼠标从某元素移开</p>
+</li>
+<li>
+<p>键盘事件：</p>
+<p><code>onkeydown</code> 某个键盘按键被按下<br>
+<code>onkeyup</code> 某个键盘按键被松开<br>
+<code>onkeypress</code> 某个键盘按键被按下并松开</p>
+</li>
+<li>
+<p>选择和改变</p>
+<p><code>onchange</code> 域的内容被改变<br>
+<code>onselect</code> 文本被选中</p>
+</li>
+<li>
+<p>表单事件：</p>
+<p><code>onsubmit</code> 确认按钮被点击<br>
+<code>onreset</code> 重置按钮被点击</p>
+</li>
+</ol>
+<h2 id="7-获取页面中的节点">7. 获取页面中的节点</h2>
+<p>document.getElementsByClassName()<br>
+返回文档中所有指定类名的元素集合，作为 NodeList 对象<br>
+document.getElementById()<br>
+返回对拥有指定 id 的第一个对象的引用<br>
+document.getElementsByName()<br>
+返回带有指定名称的对象集合<br>
+document.getElementsByTagName()<br>
+返回带有指定标签名的对象集合。</p>
+<blockquote>
+<p>除了ID其他结果都是集合！<br>
+可以在控制台输入指令直观展示结果</p>
+</blockquote>
+<h2 id="8-节点内容获取与修改">8. 节点内容获取与修改</h2>
+<ol>
+<li>
+<p>使用 <code>innerHTML</code> 属性<br>
+<strong>设置</strong>或<strong>返回</strong>表格行的<strong>开始和结束标签之间</strong>的东西</p>
+<pre><code class="language-js">function myadd() {
+    a = document.getElementById('logo')
+    a.innerHTML = 1111
+    b = a.innerHTML
+    alert(b)
+}
+</code></pre>
+<blockquote>
+<p><code>innerText</code> 与 <code>innerHTML</code><br>
+<code>innerText</code> 是内容<br>
+<code>innerHTML</code> 是纯文本</p>
+</blockquote>
+</li>
+<li>
+<p>使用 <code>value</code> 属性<br>
+<strong>设置</strong>或<strong>返回</strong>表格行的<strong>开始和结束标签之间</strong>的东西</p>
+</li>
+</ol>
+<blockquote>
+<p>标签有什么属性，就能 <code>对象.属性</code>，可以获取也可以赋值</p>
+</blockquote>
+<h2 id="9-复选框的全选和取消">9. 复选框的全选和取消</h2>
+<p>懒，不写了</p>
+<p>思路：利用<code>checked</code>获取<code>checkbox</code>选中状态并设置状态<br>
+知识点：判断和循环遍历</p>
+<pre><code class="language-js">if(){
+    // 和Java一样
+}
+
+for(var i = 0; i &lt; a.length; i++){
+    // 和Java一样
+}
+</code></pre>
+<h2 id="10-表单验证">10. 表单验证</h2>
+<ol>
+<li>
+<p><code>trim()</code>去除前后空白</p>
+</li>
+<li>
+<p>判断空值</p>
+</li>
+<li>
+<p>判断长度</p>
+</li>
+<li>
+<p>正则判断</p>
+<pre><code class="language-js">var regExp = /^[0-9a-z]$/
+regExp.test(text)
+</code></pre>
+</li>
+</ol>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.xn--fiqz59cpva341l.top/post/css-gai-shu/" class="post-title gt-a-link">
+                    CSS 概述
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">唤取雪中明月，征服浩瀚世界！</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Copyright © 2077  <a href="https://icp.gov.moe/?keyword=20230701" id="power-text">萌ICP备20230701号</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://blog.xn--fiqz59cpva341l.top/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
